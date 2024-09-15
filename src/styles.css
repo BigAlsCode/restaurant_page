@@ -1,4 +1,11 @@
 /* test for webpack */
-body{
-    /* background-color: rebeccapurple; */
+
+@media only screen 
+{
+ .home-background{
+     background: url(./assets/dotpattern.png),url(./assets/home_image.jpg) center bottom no-repeat;
+     background-blend-mode: multiply;
+     margin-top: 10px;
+     min-height: 1100px;
+ }   
 }
