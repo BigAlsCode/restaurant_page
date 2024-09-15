@@ -1,5 +1,10 @@
 /* test for webpack */
 
+.nav{
+    position: fixed !important;
+    
+}
+
 @media only screen 
 {
  .home-background{
