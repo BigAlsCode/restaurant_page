@@ -1,5 +1,5 @@
 import "./styles.css"
-import testImage from "./assets/Designer.png"
+import testImage from "./assets/testRemove.png"
 
 const image=document.createElement('img');
 image.src=testImage;
