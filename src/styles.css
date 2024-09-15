@@ -5,7 +5,7 @@
  .home-background{
      background: url(./assets/dotpattern.png),url(./assets/home_image.jpg) center bottom no-repeat;
      background-blend-mode: multiply;
-     margin-top: 10px;
-     min-height: 1100px;
+     margin-top: 2rem;
+     min-height: 89rem;
  }   
 }
