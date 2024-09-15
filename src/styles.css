@@ -5,12 +5,9 @@
     
 }
 
-@media only screen 
-{
- .home-background{
-     background: url(./assets/dotpattern.png),url(./assets/home_image.jpg) center bottom no-repeat;
-     background-blend-mode: multiply;
-     margin-top: 2rem;
-     min-height: 89rem;
- }   
-}
+.home-background{
+    background: url(./assets/dotpattern.png),url(./assets/home_image.jpg) left -50px top no-repeat;
+    background-blend-mode: multiply;
+    margin-top: 2rem;
+    min-height: 89rem;
+}   
