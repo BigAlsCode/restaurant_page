@@ -33,3 +33,13 @@ body{
     height: 70%;
     margin-top: 10rem;
 }
+
+
+.beers{
+    background: url(./assets/dotpattern.png),url(./assets/beertaps.jpg) left top no-repeat;
+    background-blend-mode: multiply;
+    background-position-x: center;
+    text-align: center;
+    min-height: 800px;
+    padding-top: 10%;
+}
