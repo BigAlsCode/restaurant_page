@@ -44,7 +44,7 @@ body{
 }
 
 
-.beers{
+.beersImage{
     background: url(./assets/dotpattern.png),url(./assets/beertaps.jpg) left top no-repeat;
     background-blend-mode: multiply;
     background-position-x: center;
