@@ -52,3 +52,13 @@ body{
     min-height: 800px;
     padding-top: 10%;
 }
+.alcohol{
+    /* display: flex; */
+    /* justify-content: space-around; */
+    display: grid;
+    justify-content: space-around;
+    align-items: center;
+    grid-template-columns: repeat(2, 3fr);
+    text-align: center;
+    background: url(./assets/dotpattern.png) left top repeat;
+}
