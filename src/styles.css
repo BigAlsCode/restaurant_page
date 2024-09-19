@@ -62,3 +62,11 @@ body{
     text-align: center;
     background: url(./assets/dotpattern.png) left top repeat;
 }
+.beers {
+    display: grid;
+    grid-template-rows: repeat(10, 1fr);
+}
+.drinks {
+    display: grid;
+    grid-template-rows: repeat(10,1fr);
+}
