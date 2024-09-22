@@ -62,8 +62,16 @@ body{
 .beers {
     display: grid;
     grid-template-rows: repeat(10, 1fr);
+    background-color: rgba(0,0,0,0.6);
+    color: white;
+    margin: 5rem;
+    border-radius: 2rem;
 }
 .drinks {
     display: grid;
     grid-template-rows: repeat(10,1fr);
+    background-color: rgba(0,0,0,0.6);
+    color: white;
+    margin: 5rem;
+    border-radius: 2rem;
 }
