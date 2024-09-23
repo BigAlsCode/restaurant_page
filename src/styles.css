@@ -75,3 +75,7 @@ body{
     margin: 5rem;
     border-radius: 2rem;
 }
+
+.events{
+    background: url(./assets/specials_background.jpg);
+}
