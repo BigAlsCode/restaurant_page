@@ -75,6 +75,14 @@ body{
     margin: 5rem;
     border-radius: 2rem;
 }
+/* Dinner Menu */
+.dinner{
+    background: url(./assets/dotpattern2.png);
+}
+.dinnerMenu{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
 
 .events{
     background: url(./assets/specials_background.jpg);
