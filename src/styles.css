@@ -75,15 +75,24 @@ body{
     margin: 5rem;
     border-radius: 2rem;
 }
+
+
 /* Dinner Menu */
 .dinner{
     background: url(./assets/dotpattern2.png);
 }
+.dinner img{
+    padding:5rem 0 5rem 0;
+}
 .dinnerMenu{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    gap: 15rem;
 }
-
+.dinner1, .dinner2 {
+    background-color: whitesmoke;
+    padding: 0 3rem 5rem 3rem;
+}
 .events{
     background: url(./assets/specials_background.jpg);
 }
