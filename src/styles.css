@@ -1,6 +1,7 @@
 /* test for webpack */
 body{
     margin: 0;
+    background-color: #d7d7d7;
 }
 .nav {
     position: fixed !important;
@@ -93,6 +94,14 @@ body{
     background-color: whitesmoke;
     padding: 0 3rem 5rem 3rem;
 }
+
+.dinner h1, .breakfast h1{
+    color: #799b5e;
+    text-decoration: underline;
+}
+
+
+/* Events */
 .events{
     background: url(./assets/specials_background.jpg);
 }
