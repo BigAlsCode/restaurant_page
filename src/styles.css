@@ -93,6 +93,8 @@ body{
 .dinner1, .dinner2 {
     background-color: whitesmoke;
     padding: 0 3rem 5rem 3rem;
+    border-radius: 2rem;
+    display: grid;
 }
 
 .dinner h1, .breakfast h1{
