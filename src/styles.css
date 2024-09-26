@@ -18,7 +18,7 @@ body{
 }
 
 .home-background {
-    background: url(http://localhost:8080/486b53e07c7ecb32e0e9.png),url(http://localhost:8080/c95257364d1d0dd46248.jpg) center bottom no-repeat;
+    background: url(./assets/dotpattern.png),url(./assets/home_image.jpg) center bottom no-repeat;
     background-blend-mode: multiply;
     background-size: auto, 98% 100%;
     min-height: 79rem;
@@ -38,22 +38,23 @@ body{
     margin-left: -15px;
 }
 
-.home-background img{
-    width: 70%;
-    height: 70%;
-    margin-top: 10rem;
+.home-background img {
+    width: 80%;
+    height: 80%;
+    margin-top: 25rem;
 }
 
 
-.beersImage{
-    background: url(./assets/dotpattern.png),url(./assets/beertaps.jpg) left top no-repeat;
+.beersImage {
+    background: url(./assets/dotpattern.png),url(./assets/beertaps.jpg) center bottom no-repeat;
     background-blend-mode: multiply;
     background-position-x: center;
-    background-size: auto, 98% 100%;
+    background-size: auto, 98%;
     text-align: center;
-    min-height: 800px;
+    min-height: 1100px;
     padding-top: 10%;
 }
+
 .alcohol{
     display: grid;
     grid-template-columns: repeat(2, 3fr);
