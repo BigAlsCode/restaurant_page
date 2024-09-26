@@ -18,11 +18,9 @@ body{
 }
 
 .home-background{
-    background: url(./assets/dotpattern.png),url(./assets/home_image.jpg) left -50px top no-repeat;
+    background: url(./assets/dotpattern.png),url(./assets/home_image.jpg) center bottom no-repeat;
     background-blend-mode: multiply;
-    background-position-x: center;
-    margin-top: 2rem;
-    min-height: 89rem;
+    min-height: 79rem;
     text-align: center;
 }
 
@@ -108,6 +106,7 @@ body{
     text-decoration: underline;
 }
 
+/* Breakfast Menu */
 
 /* Events */
 .events{
