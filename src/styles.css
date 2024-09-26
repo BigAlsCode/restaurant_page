@@ -81,6 +81,7 @@ body{
 /* Dinner Menu */
 .dinner{
     background: url(./assets/dotpattern2.png);
+    padding-bottom: 6rem;
 }
 .dinner img{
     padding:5rem 0 5rem 0;
