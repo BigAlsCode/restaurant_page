@@ -17,9 +17,10 @@ body{
     gap: 2rem;
 }
 
-.home-background{
-    background: url(./assets/dotpattern.png),url(./assets/home_image.jpg) center bottom no-repeat;
+.home-background {
+    background: url(http://localhost:8080/486b53e07c7ecb32e0e9.png),url(http://localhost:8080/c95257364d1d0dd46248.jpg) center bottom no-repeat;
     background-blend-mode: multiply;
+    background-size: auto, 98% 100%;
     min-height: 79rem;
     text-align: center;
 }
@@ -48,6 +49,7 @@ body{
     background: url(./assets/dotpattern.png),url(./assets/beertaps.jpg) left top no-repeat;
     background-blend-mode: multiply;
     background-position-x: center;
+    background-size: auto, 98% 100%;
     text-align: center;
     min-height: 800px;
     padding-top: 10%;
