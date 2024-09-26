@@ -83,6 +83,11 @@ body{
     background: url(./assets/dotpattern2.png);
     padding-bottom: 6rem;
 }
+.dinnerText {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .dinner img{
     padding:5rem 0 5rem 0;
 }
