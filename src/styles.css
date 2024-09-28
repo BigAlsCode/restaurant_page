@@ -137,12 +137,16 @@ body{
 }
 /* Events */
 .events {
-    background: url(http://localhost:8080/67d4389e11a5970efb75.jpg);
+    background: url(./assets/specials_background.jpg);
     min-height: 100vh;
     padding: 3rem 0 3rem 0;
 }
 .events img {
     padding: 1rem 0 5rem 0;
+}
+.eventBanner {
+    display: flex;
+    justify-content: center;
 }
 .highlight, .event_list{
     color:whitesmoke;
