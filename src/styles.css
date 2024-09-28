@@ -110,6 +110,9 @@ body{
 }
 
 /* Breakfast Menu */
+.breakfast{
+    padding-bottom: 6rem;
+}
 .breakfastMenu {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -135,6 +138,7 @@ body{
 /* Events */
 .events{
     background: url(./assets/specials_background.jpg);
+    min-height: 100vh;
 }
 
 
