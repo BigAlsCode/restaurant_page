@@ -116,6 +116,17 @@ body{
     gap: 15rem;
 }
 
+.breakfast img{
+    padding: 5rem 0 5rem 0
+}
+
+.breakfastText{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
 .breakfast1, .breakfast2 {
     background-color: whitesmoke;
     border-radius: 2rem;
