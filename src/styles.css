@@ -141,7 +141,23 @@ body{
     min-height: 100vh;
 }
 
+.highlight, .event_list{
+    color:whitesmoke;
+}
 
+.event-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 4em;
+}
+
+.day {
+    flex: 0 0 30%;
+    flex-grow: 0;
+    display: flex;
+    flex-direction: column;
+}
 
 .site-footer{
     background-color: #AFCB98;
