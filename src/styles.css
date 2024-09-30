@@ -184,6 +184,16 @@ body{
     border-radius: 0rem;
 }
 
+/* Footer  */
+
 .site-footer{
     background-color: #AFCB98;
+    padding: 1rem 0 1rem 0;
+}
+
+.direction{
+    text-decoration: underline;
+}
+a{
+    text-decoration: none;
 }
