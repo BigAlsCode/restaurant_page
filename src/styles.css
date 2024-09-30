@@ -150,7 +150,7 @@ body{
     display: flex;
     justify-content: center;
 }
-.highlight, .event_list{
+.highlights, .event_list{
     color:whitesmoke;
 }
 
@@ -168,7 +168,7 @@ body{
     flex-direction: column;
 }
 
-.highlight {
+.highlights{
     background-color: #5a92ade3;
     font-weight: normal;
     text-transform: uppercase;
