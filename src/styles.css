@@ -137,9 +137,11 @@ body{
 }
 /* Events */
 .events {
-    background: url(./assets/specials_background.jpg);
+    background: url(./assets/dotpattern.png), url(./assets/specials_background.jpg) center top no-repeat;
+    background-blend-mode: multiply;
     min-height: 100vh;
     padding: 3rem 0 3rem 0;
+    background-size: auto, 98% 100%;
 }
 .events img {
     padding: 1rem 0 5rem 0;
