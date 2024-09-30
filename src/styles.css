@@ -166,6 +166,22 @@ body{
     flex-direction: column;
 }
 
+.highlight {
+    background-color: #5a92ade3;
+    font-weight: normal;
+    text-transform: uppercase;
+    font-size: 3rem;
+    display: inline;
+    text-align: center;
+    letter-spacing: 2px;
+}
+
+.event_list {
+    font-size: 2rem;
+    background-color: rgba(0,0,0,0.5);
+    border-radius: 0rem;
+}
+
 .site-footer{
     background-color: #AFCB98;
 }
