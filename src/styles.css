@@ -35,6 +35,16 @@ body{
     min-height: 79rem;
     text-align: center;
 }
+.home_message {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 1vh 25vw 1vh 25vw;
+}
+.homeContainer {
+    flex: 1 1 auto;
+}
 
 .container {
     width: 1170px;
