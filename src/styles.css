@@ -21,6 +21,12 @@ body{
 .nav img{
     width:10%;
 }
+.navButtons {
+    display: flex;
+    gap: 1rem;
+}
+
+/* Main */
 
 .home-background {
     background: url(./assets/dotpattern.png),url(./assets/home_image.jpg) center bottom no-repeat;
