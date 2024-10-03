@@ -9,6 +9,10 @@
     font-family: var(--font-global);
 }
 
+h1, h2{
+    text-transform: uppercase;
+}
+
 body{
     margin: 0;
     background-color: #d7d7d7;
