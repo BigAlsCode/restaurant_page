@@ -1,16 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Trocchi&display=swap');
 
 /* test for webpack */
 :root{
-    --font-global: 'Montserrat', sans-serif;
+    --Header-font: 'Montserrat', sans-serif;
+    --font-global: 'Trocchi', sans-serif;
+    --global-color: #424e50;
 }
 
 *{
     font-family: var(--font-global);
 }
 
-h1, h2{
+h1, h2, h3, span{
     text-transform: uppercase;
+    font-family: var(--Header-font);
 }
 
 body{
@@ -50,19 +54,32 @@ body{
     text-align: center;
 }
 .home_message {
+    color: var(--global-color);
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     margin: 1vh 25vw 1vh 25vw;
 }
+.home_message h3 {
+    
+    text-transform: uppercase;
+    font-size: 1.6rem;
+    font-weight: 500;
+}
 .homeContainer {
     flex: 1 1 auto;
     padding: 1rem 10rem 1rem 10rem;
 }
-h3 {
-    text-transform: uppercase;
-    font-size: 1.6rem;
+.homeContainer p {
+    margin: 0;
+    padding-bottom: 2rem;
+    font-weight: 400;
+    letter-spacing: 0.03em;
+}
+.sans{
+    font-size: 0.9rem;
+    font-weight: 600;
 }
 
 .container {
