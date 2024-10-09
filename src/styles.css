@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Trocchi&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Protest+Strike&display=swap');
 
 /* test for webpack */
 :root{
@@ -109,8 +110,8 @@ body{
     background-position-x: center;
     background-size: auto, 98%;
     text-align: center;
-    min-height: 1100px;
-    padding-top: 10%;
+    /* min-height: 1100px; */
+    /* padding-top: 10%; */
 }
 
 .alcohol{
@@ -126,6 +127,13 @@ body{
     color: white;
     margin: 5rem;
     border-radius: 2rem;
+}
+.seasonal, .cocktails {
+    font-family: 'Protest Strike', sans-serif;
+    transform: rotate(360deg);
+    text-decoration: underline;
+    font-size: 3rem;
+    letter-spacing: 5px;
 }
 .drinks {
     display: grid;
