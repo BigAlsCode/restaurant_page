@@ -158,8 +158,9 @@ body{
 .dinner img{
     padding:5rem 0 5rem 0;
 }
-.dinnerMenu{
+.dinnerMenu {
     display: grid;
+    margin: 0rem 15rem 0rem 15rem;
     grid-template-columns: repeat(2, 1fr);
     gap: 15rem;
 }
@@ -167,13 +168,22 @@ body{
     background-color: whitesmoke;
     padding: 0 3rem 5rem 3rem;
     border-radius: 2rem;
-    /* display: grid; */
+}
+/* grid properties for dinner menues */
+.dinner1 {
+    display: grid;
+    grid-template-rows: repeat(6, auto);
+}
+.dinner2 {
+    display: grid;
+    grid-template-rows: repeat(4, auto);
 }
 
 .dinner h1, .breakfast h1{
     color: #799b5e;
     text-decoration: underline;
 }
+
 
 /* Breakfast Menu */
 .breakfast{
