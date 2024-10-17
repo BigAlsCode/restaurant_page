@@ -122,7 +122,7 @@ body{
 }
 .beers {
     display: grid;
-    grid-template-rows: repeat(10, 1fr);
+    grid-template-rows: repeat(1, 2fr) repeat(9, 1fr);
     background-color: rgba(0,0,0,0.6);
     color: white;
     margin: 5rem;
@@ -137,7 +137,7 @@ body{
 }
 .drinks {
     display: grid;
-    grid-template-rows: repeat(10,1fr);
+    grid-template-rows: repeat(1, 2fr) repeat(10,1fr);
     background-color: rgba(0,0,0,0.6);
     color: white;
     margin: 5rem;
