@@ -18,13 +18,16 @@ import headline from "./assets/headlinehome4.png";
 
 function homeMessage(){
     const homeMess=document.createElement('div');
-    homeMess.className='home_message';
     const homeCont=document.createElement('div');
+    homeMess.className='home_message';
     homeCont.className='homeContainer';
 
     const header=document.createElement('h3');
-    header.textContent='Cappys is known for Healthy, Fresh, and Reasonably Priced Food and Drinks.'
     const message=document.createElement('p');
+    const direction=document.createElement('span');
+    const hours=document.createElement('p');
+    direction.className='sans';
+    header.textContent='Cappys is known for Healthy, Fresh, and Reasonably Priced Food and Drinks.'
     message.textContent=`
                     We use a Grease-Free Eco-Friendly Cooking system. Super-Heated Convection
                     Air is used to cook many traditionally fried items such as Hot Wings, Seasoned
@@ -37,9 +40,16 @@ function homeMessage(){
                     Egg Whites, Yogurt, Oatmeal and much more. (Try one of our famous Bloody Marys).
                     Stop in and find out what smart Pittsburghers have known for years.
     `;
+    direction.textContent=`Located in the Shadyside Business District`;
+    hours.textContent=`
+                    "Monday-Friday: Kitchen 11am-9pm"`+
+                    "<br>"+
+                    `"Saturday-Sunday (Breakfast): 10am-9pm"`;
 
     homeCont.appendChild(header);
     homeCont.appendChild(message);
+    homeCont.appendChild(direction);
+    homeCont.appendChild(hours);
     homeMess.appendChild(homeCont);
 
     return homeMess;
