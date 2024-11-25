@@ -1,7 +1,9 @@
 import "./styles.css"
-import image from "./home.js";
+import {homeSplash} from "./home.js";
 
 console.log("The page is up and running")
 
-document.body.appendChild(image);
+let content=document.getElementById('content')
+
+content.appendChild(homeSplash());
 
