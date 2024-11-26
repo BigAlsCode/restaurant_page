@@ -7,4 +7,8 @@ function alcohol(){
     booze.className='beersImage';
     boozeMen.className='alcohol';
     boozeMen.id='alcohol';
+
+    let beerList=["FATHEAD'S-HEAD HUNTER IPA", "TROEGS-PERPETUAL IPA", "ARSENAL-PUMPKIN CIDER", 
+                  "GUINESS-STOUT", "SOUTHERN TIER-PUMKING", "MILLER LITE-LAGER", "YUENGLING LAGER",
+                  "TROEG'S HOPRA IPA 12oz CANS", "BEER OF THE MONTH $4.5"];
 }
