@@ -26,6 +26,7 @@ function homeMessage(){
     const message=document.createElement('p');
     const direction=document.createElement('span');
     const hours=document.createElement('p');
+    
     direction.className='sans';
     header.textContent='Cappys is known for Healthy, Fresh, and Reasonably Priced Food and Drinks.'
     message.textContent=`
@@ -41,7 +42,7 @@ function homeMessage(){
                     Stop in and find out what smart Pittsburghers have known for years.
     `;
     direction.textContent=`Located in the Shadyside Business District`;
-    hours.textContent=`
+    hours.innerHTML=`
                     "Monday-Friday: Kitchen 11am-9pm"`+
                     "<br>"+
                     `"Saturday-Sunday (Breakfast): 10am-9pm"`;
