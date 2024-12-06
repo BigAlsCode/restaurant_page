@@ -46,9 +46,14 @@ function alcohol(){
     }
 
     const drinks=document.createElement('div');
+    const cocktails=document.createElement('h1');
+    cocktails.className='cocktails';
+    cocktails.textContent=`Classic Cappys Cocktails`;
     drinks.className='drinks';
+    drinks.appendChild(cocktails);
 
     boozeMen.appendChild(beers);
+    boozeMen.appendChild(drinks);
     booze.appendChild(boozeMen);
     return booze;
 }
