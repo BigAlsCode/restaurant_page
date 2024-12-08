@@ -27,6 +27,8 @@ function alcohol(){
         "CROWN ROYAL APPLE, Sweet and Dry Vermouth, bitters, served up or on the rocks with a cinnamon stick",
         "Hendricks Gin, St. Germain, soda, fresh lemon."
     ];
+
+    let drinkList=drinkNames.map((x, i)=>[x, drinkDesc[i]]);
     
 
     const beers=document.createElement('div');
@@ -51,6 +53,23 @@ function alcohol(){
     cocktails.textContent=`Classic Cappys Cocktails`;
     drinks.className='drinks';
     drinks.appendChild(cocktails);
+
+    for (let drink of drinkList){
+        // classless container to contain all elements
+        const cont=document.createElement('div');
+        const title=document.createElement('h2');
+        const titleP=document.createElement('span');
+        const desc=document.createElement('p');
+
+        title.textContent=drink[0];
+        desc.textContent=drink[1];
+        titleP.className='price';
+
+        title.appendChild(titleP);
+        cont.appendChild(title);
+        cont.appendChild(desc);
+        drinks.appendChild(cont);
+    }
 
     boozeMen.appendChild(beers);
     boozeMen.appendChild(drinks);
