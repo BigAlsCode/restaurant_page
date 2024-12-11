@@ -89,7 +89,10 @@ function dinner(){
     img.alt='Dinner Text';
     dinMen.className='dinnerMenu';
 
+    const pageOne=document.createElement('div');
+    const pageTwo=document.createElement('div');
 
+    
 
     dinImg.appendChild(img);
     din.appendChild(dinImg);
