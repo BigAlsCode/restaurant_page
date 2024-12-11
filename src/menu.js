@@ -77,4 +77,7 @@ function alcohol(){
     return booze;
 }
 
+function dinner(){
+    
+}
 export {alcohol}
