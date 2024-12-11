@@ -1,5 +1,6 @@
 import dinText from "./assets/menu2edit.png"
 import brkText from "./assets/breakfast2.png"
+import { indexOf } from "lodash";
 
 function alcohol(){
     const booze=document.createElement('div');
@@ -89,11 +90,63 @@ function dinner(){
     img.alt='Dinner Text';
     dinMen.className='dinnerMenu';
 
+    // dinner menu pages
     const pageOne=document.createElement('div');
     const pageTwo=document.createElement('div');
+    pageOne.className='dinner1';
+    pageTwo.className='dinner2';
 
-    
+    // appetizers for page one
+    const apps= () =>{
+        const starters=document.createElement('div');
+        const appTitle=document.createElement('h1');
+        starters.className='starters';
+        appTitle.textContent='Starters';
 
+        let description={
+            label: [
+                'SOFT PRETZEL STICKS', 'SPINACH & ARTICHOKE DIP', 'PITA & HOUSE HUMMUS',
+                'CHICKEN TENDERS', 'BUFFALO CHICKEN DIP', 'BATTERED CHEESE STICKS',
+                'POTATO PANCAKE MIDGIES', 'NACHOS GRANDE', 'QUESADILLA'
+            ],
+            price: [
+                '&ensp;9','&ensp;9','&ensp;8.5',
+                '&ensp;9','&ensp;9','&ensp;9',
+                '&ensp;8','&ensp;11','&ensp;10'
+            ],
+            desc:[
+                'House beer cheese dip',
+                'Toasted wheat or white pita or tri-colored totilla chips',
+                'Toasted white or whole wheat pita',
+                'Ranch, BBQ or Buffalo Sauce',
+                'Toasted white or wheat pita, or Tri-Colored Tortillia chips',
+                'With Marinara Sauce',
+                'Served up with apple sauce and sourcream on the side',
+                'Grilled Chicken or Chili. Jalapenos, olives, banana peppers & house blend shredded cheese',
+                'Chicken, Portebella, or Steak: grilled onions and green peppers & house blend shredded cheese'
+            ]
+        }
+
+        starters.appendChild(appTitle);
+
+        for(let [index, item] of description.label.entries()){
+            const name=document.createElement('h2');
+            const cost=document.createElement('span');
+            const info=document.createElement('p');
+
+            name.innerHTML=item;
+            cost.innerHTML=description.price[index];
+            info.textContent=description.desc[index];
+
+            name.appendChild(cost);
+            starters.appendChild(name);
+            starters.appendChild(info);
+        }
+        return starters;
+    }
+
+    pageOne.appendChild(apps());
+    dinMen.appendChild(pageOne);
     dinImg.appendChild(img);
     din.appendChild(dinImg);
     din.appendChild(dinMen);
