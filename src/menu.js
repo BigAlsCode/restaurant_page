@@ -1,5 +1,5 @@
-import dinMen from "./assets/menu2edit.png"
-import brkMen from "./assets/breakfast2.png"
+import dinText from "./assets/menu2edit.png"
+import brkText from "./assets/breakfast2.png"
 
 function alcohol(){
     const booze=document.createElement('div');
@@ -78,6 +78,25 @@ function alcohol(){
 }
 
 function dinner(){
-    
+    const din=document.createElement('div');
+    const dinImg=document.createElement('div');
+    const img=document.createElement('img');
+    const dinMen=document.createElement('div');
+
+    din.className='dinner';
+    dinImg.className='dinnerText';
+    img.src=dinText;
+    img.alt='Dinner Text';
+    dinMen.className='dinnerMenu';
+
+
+
+    dinImg.appendChild(img);
+    din.appendChild(dinImg);
+    din.appendChild(dinMen);
+
+    return din;
 }
-export {alcohol}
+
+
+export {alcohol, dinner}
