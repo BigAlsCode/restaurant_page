@@ -96,13 +96,20 @@ function dinner(){
     pageOne.className='dinner1';
     pageTwo.className='dinner2';
 
+    
+    let name=document.createElement('h2');
+    let cost=document.createElement('span');
+    let info=document.createElement('p');
+    cost.className='price';
+
     // appetizers for page one
-    const apps= () =>{
+    let apps= (name, cost, info) =>{
         const starters=document.createElement('div');
         const appTitle=document.createElement('h1');
         starters.className='starters';
         appTitle.textContent='Starters';
 
+        // This was made into an object for organization purposes. All lists should be tied to one object
         let description={
             label: [
                 'SOFT PRETZEL STICKS', 'SPINACH & ARTICHOKE DIP', 'PITA & HOUSE HUMMUS',
@@ -130,9 +137,7 @@ function dinner(){
         starters.appendChild(appTitle);
 
         for(let [index, item] of description.label.entries()){
-            const name=document.createElement('h2');
-            const cost=document.createElement('span');
-            const info=document.createElement('p');
+            
 
             name.innerHTML=item;
             cost.innerHTML=description.price[index];
@@ -145,7 +150,30 @@ function dinner(){
         return starters;
     }
 
-    pageOne.appendChild(apps());
+    const side=()=>{
+        const sides=document.createElement('div');
+        const title=document.createElement('h1');
+        title.textContent='Sides';
+        sides.appendChild(title);
+
+        let description={
+            label:[
+                'SEASONED WAFFLE FRIES',
+                'SWEET POTATO FRIES',
+                'BASKET OF FRENCH FRIES',
+                'ONION RINGS',
+                'STEAMED BROCCOLI OR COLE SLAW'
+            ],
+            price:[
+                '&ensp;5', '&ensp;5', '&ensp;4.5: WITH CHEESE(5.5)',
+                '&ensp;5.5', '&ensp;3.5'
+            ]
+        }
+
+        
+    }
+
+    pageOne.appendChild(apps(name, cost, info));
     dinMen.appendChild(pageOne);
     dinImg.appendChild(img);
     din.appendChild(dinImg);
