@@ -96,14 +96,21 @@ function dinner(){
     pageOne.className='dinner1';
     pageTwo.className='dinner2';
 
-    
-    let name=document.createElement('h2');
-    let cost=document.createElement('span');
-    let info=document.createElement('p');
-    cost.className='price';
+    const elements=(title, price, desc)=>{
+        const name=document.createElement('h2');
+        const cost=document.createElement('span');
+        const info=document.createElement('p')
+
+        name.innerHTML=title;
+        cost.innerHTML=price;
+        info.textContent=desc;
+
+        
+        return [name, cost, info];
+    }
 
     // appetizers for page one
-    let apps= (name, cost, info) =>{
+    let apps= () =>{
         const starters=document.createElement('div');
         const appTitle=document.createElement('h1');
         starters.className='starters';
@@ -138,14 +145,13 @@ function dinner(){
 
         for(let [index, item] of description.label.entries()){
             
-
-            name.innerHTML=item;
-            cost.innerHTML=description.price[index];
-            info.textContent=description.desc[index];
-
+            let [name, cost, info]=elements(item, description.price[index], description.desc[index])
+            console.log(name, cost, info)
+            
             name.appendChild(cost);
             starters.appendChild(name);
             starters.appendChild(info);
+            
         }
         return starters;
     }
@@ -173,7 +179,7 @@ function dinner(){
         
     }
 
-    pageOne.appendChild(apps(name, cost, info));
+    pageOne.appendChild(apps());
     dinMen.appendChild(pageOne);
     dinImg.appendChild(img);
     din.appendChild(dinImg);
