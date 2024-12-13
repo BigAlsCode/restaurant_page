@@ -147,7 +147,6 @@ function dinner(){
         for(let [index, item] of description.label.entries()){
             
             let [name, cost, info]=elements(item, description.price[index], description.desc[index])
-            console.log(name, cost, info)
             
             name.appendChild(cost);
             starters.appendChild(name);
@@ -176,10 +175,17 @@ function dinner(){
             ]
         }
 
-        
+        for(let [index, item] of description.label.entries()){
+            let [name, cost, info]=elements(item, description.price[index], '');
+
+            name.appendChild(cost);
+            sides.appendChild(name);
+        }
+        return sides;
     }
 
     pageOne.appendChild(apps());
+    pageOne.appendChild(side());
     dinMen.appendChild(pageOne);
     dinImg.appendChild(img);
     din.appendChild(dinImg);
