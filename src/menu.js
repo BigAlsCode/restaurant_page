@@ -106,6 +106,8 @@ function dinner(){
         cost.innerHTML=price;
         info.textContent=desc;
 
+        cost.className='price';
+
         
         return [name, cost, info];
     }
@@ -176,7 +178,7 @@ function dinner(){
         }
 
         for(let [index, item] of description.label.entries()){
-            let [name, cost, info]=elements(item, description.price[index], '');
+            let [name, cost, info]=elements(item, description.price[index], null);
 
             name.appendChild(cost);
             sides.appendChild(name);
@@ -184,8 +186,43 @@ function dinner(){
         return sides;
     }
 
+    const soups=()=>{
+        const soup=document.createElement('div');
+        const title=document.createElement('h1');
+        soup.className='soup';
+        title.textContent='Soups & Famous House Chili';
+        soup.appendChild(title);
+
+        let description={
+            label:[
+                'SOUP',
+                'HOUSE CHILI'
+            ],
+            price:[
+                '&ensp;Cup 5.5 : Bowl 6.5',
+                '&ensp;Cup 5.5 : Bowl 7',
+                'ADD CHEESE 0.75'
+            ]
+        }
+
+        for(let [index, item] of description.label.entries()){
+            let [name, cost, desc]=elements(item, description.price[index], '');
+
+            name.appendChild(cost);
+            soup.appendChild(name);
+        }
+
+        let [end, endSpan, info]=elements(null, description.price[description.price.length-1], null);
+        end.appendChild(endSpan);
+        soup.appendChild(end);
+        return soup;
+    }
+
+    
     pageOne.appendChild(apps());
     pageOne.appendChild(side());
+    pageOne.appendChild(soups());
+
     dinMen.appendChild(pageOne);
     dinImg.appendChild(img);
     din.appendChild(dinImg);
