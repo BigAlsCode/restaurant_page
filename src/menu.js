@@ -96,6 +96,7 @@ function dinner(){
     pageOne.className='dinner1';
     pageTwo.className='dinner2';
 
+    // creates the recurring elements found in each section of the menu
     const elements=(title, price, desc)=>{
         const name=document.createElement('h2');
         const cost=document.createElement('span');
@@ -151,7 +152,6 @@ function dinner(){
             name.appendChild(cost);
             starters.appendChild(name);
             starters.appendChild(info);
-            
         }
         return starters;
     }
