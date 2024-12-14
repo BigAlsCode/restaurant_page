@@ -96,6 +96,20 @@ function dinner(){
     pageOne.className='dinner1';
     pageTwo.className='dinner2';
 
+    // create all div elements for page one and page two of dinner menu
+    const pageOneContainerNames=['starters', 'sides', 'soup', 'wings', 'salad', 'pizza'];
+    const pageTwoContainerNames=['sandwich', 'burger', 'hoagie', 'kids'];
+
+    let pageOneCont=[]
+
+    for(let item of pageOneContainerNames){
+        let container=document.createElement('div');
+        container.className=item;
+        pageOneCont.push(container);
+    }
+
+    
+
     // creates the recurring elements found in each section of the menu
     const elements=(title, price, desc)=>{
         const name=document.createElement('h2');
@@ -112,11 +126,9 @@ function dinner(){
         return [name, cost, info];
     }
 
-    // appetizers for page one
-    let apps= () =>{
-        const starters=document.createElement('div');
+    // menu functions to add names, prices and descriptions to menu pages
+     (function(){
         const appTitle=document.createElement('h1');
-        starters.className='starters';
         appTitle.textContent='Starters';
 
         // This was made into an object for organization purposes. All lists should be tied to one object
@@ -143,19 +155,20 @@ function dinner(){
                 'Chicken, Portebella, or Steak: grilled onions and green peppers & house blend shredded cheese'
             ]
         }
-
-        starters.appendChild(appTitle);
+        pageOneCont[0].appendChild(appTitle);
 
         for(let [index, item] of description.label.entries()){
             
             let [name, cost, info]=elements(item, description.price[index], description.desc[index])
             
             name.appendChild(cost);
-            starters.appendChild(name);
-            starters.appendChild(info);
+            pageOneCont[0].appendChild(name);
+            pageOneCont[0].appendChild(info);
         }
-        return starters;
-    }
+        
+    })();
+
+    // console.log(pageOneCont[0]);
 
     const side=()=>{
         const sides=document.createElement('div');
@@ -218,8 +231,12 @@ function dinner(){
         return soup;
     }
 
-    
-    pageOne.appendChild(apps());
+    const wings=()=>{
+        const wing=document.createElement('div');
+
+    }
+
+    pageOne.appendChild(pageOneCont[0]);
     pageOne.appendChild(side());
     pageOne.appendChild(soups());
 
