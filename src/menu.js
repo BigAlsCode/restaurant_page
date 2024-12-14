@@ -1,6 +1,7 @@
 import dinText from "./assets/menu2edit.png"
 import brkText from "./assets/breakfast2.png"
-import { indexOf } from "lodash";
+// import { indexOf } from "lodash";
+// import { description } from "commander";
 
 function alcohol(){
     const booze=document.createElement('div');
@@ -126,13 +127,9 @@ function dinner(){
         return [name, cost, info];
     }
 
-    // menu functions to add names, prices and descriptions to menu pages
-     (function(){
-        const appTitle=document.createElement('h1');
-        appTitle.textContent='Starters';
 
-        // This was made into an object for organization purposes. All lists should be tied to one object
-        let description={
+    let description={
+        apps: {
             label: [
                 'SOFT PRETZEL STICKS', 'SPINACH & ARTICHOKE DIP', 'PITA & HOUSE HUMMUS',
                 'CHICKEN TENDERS', 'BUFFALO CHICKEN DIP', 'BATTERED CHEESE STICKS',
@@ -155,19 +152,51 @@ function dinner(){
                 'Chicken, Portebella, or Steak: grilled onions and green peppers & house blend shredded cheese'
             ]
         }
+    };
+
+    // menu functions to add names, prices and descriptions to menu pages
+    (function(){
+        const appTitle=document.createElement('h1');
+        appTitle.textContent='Starters';
+
+        // This was made into an object for organization purposes. All lists should be tied to one object
+        // let description={
+        //     label: [
+        //         'SOFT PRETZEL STICKS', 'SPINACH & ARTICHOKE DIP', 'PITA & HOUSE HUMMUS',
+        //         'CHICKEN TENDERS', 'BUFFALO CHICKEN DIP', 'BATTERED CHEESE STICKS',
+        //         'POTATO PANCAKE MIDGIES', 'NACHOS GRANDE', 'QUESADILLA'
+        //     ],
+        //     price: [
+        //         '&ensp;9','&ensp;9','&ensp;8.5',
+        //         '&ensp;9','&ensp;9','&ensp;9',
+        //         '&ensp;8','&ensp;11','&ensp;10'
+        //     ],
+        //     desc:[
+        //         'House beer cheese dip',
+        //         'Toasted wheat or white pita or tri-colored totilla chips',
+        //         'Toasted white or whole wheat pita',
+        //         'Ranch, BBQ or Buffalo Sauce',
+        //         'Toasted white or wheat pita, or Tri-Colored Tortillia chips',
+        //         'With Marinara Sauce',
+        //         'Served up with apple sauce and sourcream on the side',
+        //         'Grilled Chicken or Chili. Jalapenos, olives, banana peppers & house blend shredded cheese',
+        //         'Chicken, Portebella, or Steak: grilled onions and green peppers & house blend shredded cheese'
+        //     ]
+        // }
         pageOneCont[0].appendChild(appTitle);
 
-        for(let [index, item] of description.label.entries()){
+        for(let [index, item] of description.apps.label.entries()){
             
-            let [name, cost, info]=elements(item, description.price[index], description.desc[index])
+            let [name, cost, info]=elements(item, description.apps.price[index], description.apps.desc[index])
             
             name.appendChild(cost);
             pageOneCont[0].appendChild(name);
             pageOneCont[0].appendChild(info);
-        }
-        
+        }    
     })();
-
+    for(const key in description){
+        console.log(description[key])
+    }
     // console.log(pageOneCont[0]);
 
     const side=()=>{
