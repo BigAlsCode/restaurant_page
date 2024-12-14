@@ -3,6 +3,7 @@ import brkText from "./assets/breakfast2.png"
 // import { indexOf } from "lodash";
 // import { description } from "commander";
 
+console.log('testing');
 function alcohol(){
     const booze=document.createElement('div');
     const boozeMen=document.createElement('div');
