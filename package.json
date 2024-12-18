@@ -106,6 +106,7 @@
     "follow-redirects": "^1.15.9",
     "forwarded": "^0.2.0",
     "fresh": "^0.5.2",
+    "fs-js": "^1.0.6",
     "function-bind": "^1.1.2",
     "get-intrinsic": "^1.2.4",
     "glob-parent": "^5.1.2",
