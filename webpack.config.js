@@ -9,6 +9,11 @@ module.exports={
         path: path.resolve(__dirname, "dist"),
         clean: true,
     },
+    resolve:{
+        fallback:{
+            'fs':false,
+        },
+    },
     devtool:"eval-source-map",
     devServer:{
         watchFiles:["./src/template.html"],

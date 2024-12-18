@@ -1,10 +1,8 @@
 import dinText from "./assets/menu2edit.png"
 import brkText from "./assets/breakfast2.png"
-import * as fs from 'fs';
-import {parse} from 'csv-parse';
 
-const fs=require('fs');
-const csv=require('csv-parse');
+let fs=require('fs-js');
+let csv=require('csv-parse');
 
 fs.createReadStream('TestCsv.csv-Sheet1.csv')
     .pipe(csv.parse({delimiter:',', from_line:2}))
