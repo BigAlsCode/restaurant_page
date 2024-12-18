@@ -177,8 +177,31 @@ function dinner(){
                 'ADD CHEESE 0.75'
             ],
             desc:''
+        },
+        wings:{
+            label:['DOZEN WINGS', '10 BONELESS WINGS'],
+            price:['&ensp;14', '&ensp;10'],
+            desc:""
+        },
+        salads:{
+            label:[
+                'GRILLED CHICKEN OR STEAK', 'CALIFORNIA SPRING', 'GREEK',
+                'STRAWBERRY CHICKEN', 'CHICKEN TENDER SALAD', 'HOUSE SALAD'
+            ],
+            price:[
+                '&ensp;12', '&ensp;12 (Add grilled chicken 14 | Grilled salmon 16)',
+                '&ensp;12 (Add grilled chicken 14 | Grilled salmon 16)', '&ensp;13','&ensp;12',
+                '&ensp;SMALL 5 | LARGE 6'
+            ],
+            desc:[
+                'Seasoned Protien:Plain, Cajun, Buffalo or BBQ : Grilled peppers, onions, and mushroms on a bed of lettuce topped with house blended cheese and diced tomatoe',
+                'Artichokes, roasted red peppers, zuchinni, cucumbers, black olives, red onions : served over Arcadia Spring Mix and topped with Bleu Crumble Cheese and Walnuts',
+                'Roasted red peppers, black olives, artichoke hearts, cucumbers : served over Arcadia Spring Mix & topped with Feta Cheese',
+                'Grilled chicken, strawberries, sliced apple : served over Arcadia Spring Mix and topped with craisins, walnuts and Bleu Crumble Cheese',
+                'Crispy or grilled chicken in your choice of sauce(Plain, Buffalo, or Honey Siracha) : Diced tomatoes and house blend shredded cheese atop a bed of lettuce',
+                'Fresh green peppers, mushrooms, sliced red onion and tomatoes atop a bed of lettuce'
+            ]
         }
-        
     };
 
     // menu functions to add names, prices and descriptions to menu pages
