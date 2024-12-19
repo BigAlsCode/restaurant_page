@@ -1,5 +1,6 @@
 const path=require("path");
 const HtmlWebpackPlugin=require("html-webpack-plugin");
+const { query } = require("express");
 
 module.exports={
     mode: "development",
@@ -8,11 +9,6 @@ module.exports={
         filename: "main.js",
         path: path.resolve(__dirname, "dist"),
         clean: true,
-    },
-    resolve:{
-        fallback:{
-            'fs':false,
-        },
     },
     devtool:"eval-source-map",
     devServer:{
@@ -26,13 +22,16 @@ module.exports={
     module:{
         rules: [
             {
-                test:/\.csv$/,
-                loader:'csv-loader',
-                options:{
-                    dynamicTyping: true,
-                    header: true,
-                    skipEmptyLines:true
-                }
+                test:/\.(txt|csv|mmdb)$/,
+                use:[
+                    {
+                        loader: 'file-loader',
+                        options:{
+                            name:"[path][name].[ext]",
+                            emitFile:true,
+                        },
+                    },
+                ],
             },
             {
                 test: /\.css$/i,

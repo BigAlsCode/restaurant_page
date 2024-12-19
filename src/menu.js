@@ -1,6 +1,16 @@
 import dinText from "./assets/menu2edit.png"
 import brkText from "./assets/breakfast2.png"
-import data from "./test.csv";
+
+const papa=require('papaparse')
+
+// papa.parse(data,{
+//     header:true,
+//     complete:(results)=>{
+//         console.log(results.data)
+//     }
+// });
+
+
 
 
 function alcohol(){
@@ -220,15 +230,15 @@ function dinner(){
             pageOneCont[0].appendChild(info);
         }    
     })();
-    for(const key in description){
-        console.log(description[key]);
-        for(let index in description[key].label){
-            console.log(description[key].label[index]);
-            console.log(description[key].price[index]);
-            if(description[key].desc[index]!==undefined)
-                console.log(description[key].desc[index]);
-        }
-    }
+    // for(const key in description){
+    //     console.log(description[key]);
+    //     for(let index in description[key].label){
+    //         console.log(description[key].label[index]);
+    //         console.log(description[key].price[index]);
+    //         if(description[key].desc[index]!==undefined)
+    //             console.log(description[key].desc[index]);
+    //     }
+    // }
     
 
     const side=()=>{
