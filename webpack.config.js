@@ -10,6 +10,15 @@ module.exports={
         path: path.resolve(__dirname, "dist"),
         clean: true,
     },
+    devServer:{
+        static: './dist', 
+        hot:true
+    },
+    resolve:{
+        alias:{
+            "~":__dirname
+        }
+    },
     devtool:"eval-source-map",
     devServer:{
         watchFiles:["./src/template.html"],
@@ -21,6 +30,10 @@ module.exports={
     ],
     module:{
         rules: [
+            {
+                test:/\.(numbers|xls|xlsx|xlsb)$/,
+                use:[{loader: './sheetjs-loader'}]
+            },
             {
                 test:/\.(txt|csv|mmdb)$/,
                 use:[
@@ -47,4 +60,5 @@ module.exports={
             },
         ],
     },
+    
 };

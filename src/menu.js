@@ -2,10 +2,10 @@ import dinText from "./assets/menu2edit.png"
 import brkText from "./assets/breakfast2.png"
 import {read, utils} from 'xlsx';
 
-const file='./test.xlsx';
-const data=await(await fetch(file)).arrayBuffer();
+// const file='./test.xlsx';
+// const data=await(await fetch(file)).arrayBuffer();
 
-const workbook=read(data)
+// const workbook=read(data)
 
 function alcohol(){
     const booze=document.createElement('div');
