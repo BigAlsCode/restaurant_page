@@ -25,7 +25,7 @@ module.exports={
                 test:/\.(txt|csv|mmdb)$/,
                 use:[
                     {
-                        loader: 'file-loader',
+                        loader: 'csv-loader',
                         options:{
                             name:"[path][name].[ext]",
                             emitFile:true,

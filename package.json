@@ -283,7 +283,8 @@
     "websocket-extensions": "^0.1.4",
     "which": "^2.0.2",
     "wildcard": "^2.0.1",
-    "ws": "^8.18.0"
+    "ws": "^8.18.0",
+    "xlsx": "https://cdn.sheetjs.com/xlsx-0.20.3/xlsx-0.20.3.tgz"
   },
   "description": ""
 }

@@ -1,17 +1,11 @@
 import dinText from "./assets/menu2edit.png"
 import brkText from "./assets/breakfast2.png"
+import {read, utils} from 'xlsx';
 
-const papa=require('papaparse')
+const file='./test.xlsx';
+const data=await(await fetch(file)).arrayBuffer();
 
-// papa.parse(data,{
-//     header:true,
-//     complete:(results)=>{
-//         console.log(results.data)
-//     }
-// });
-
-
-
+const workbook=read(data)
 
 function alcohol(){
     const booze=document.createElement('div');
