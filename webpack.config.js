@@ -10,10 +10,6 @@ module.exports={
         path: path.resolve(__dirname, "dist"),
         clean: true,
     },
-    devServer:{
-        static: './dist', 
-        hot:true
-    },
     resolve:{
         alias:{
             "~":__dirname
@@ -31,8 +27,8 @@ module.exports={
     module:{
         rules: [
             {
-                test:/\.(numbers|xls|xlsx|xlsb)$/,
-                use:[{loader: './sheetjs-loader'}]
+                test:/\.xlsx$/,
+                use:'./sheetjs-loader'
             },
             {
                 test:/\.(txt|csv|mmdb)$/,
