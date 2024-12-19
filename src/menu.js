@@ -1,20 +1,6 @@
 import dinText from "./assets/menu2edit.png"
 import brkText from "./assets/breakfast2.png"
-
-let fs=require('fs-js');
-let csv=require('csv-parse');
-
-fs.createReadStream('TestCsv.csv-Sheet1.csv')
-    .pipe(csv.parse({delimiter:',', from_line:2}))
-    .on('data', (row)=>{
-        console.log(row)
-    })
-    .on('end', ()=>{
-        console.log('CSV file successfully processed');
-    })
-    .on('error', (err)=>{
-        console.log('Error reading the csv file: ', err)
-    });
+import data from "./test.csv";
 
 
 function alcohol(){
