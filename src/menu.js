@@ -1,10 +1,14 @@
 import dinText from "./assets/menu2edit.png"
 import brkText from "./assets/breakfast2.png"
-import data from "~/data/test.xlsx"
+import data from "./test.xlsx"
 
-// const xlsx=require("xlsx");
+const xlsx=require('xlsx')
 
-// console.log(xlsx.read(data))
+const sheet=data.Sheets['test'];
+const dat=xlsx.utils.sheet_to_json(sheet);
+
+console.log(dat);
+
 
 function alcohol(){
     const booze=document.createElement('div');

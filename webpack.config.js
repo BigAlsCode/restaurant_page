@@ -28,7 +28,7 @@ module.exports={
         rules: [
             {
                 test:/\.xlsx$/,
-                use:'./sheetjs-loader'
+                use:'webpack-xlsx-loader'
             },
             {
                 test:/\.(txt|csv|mmdb)$/,
