@@ -1,13 +1,23 @@
 import dinText from "./assets/menu2edit.png"
 import brkText from "./assets/breakfast2.png"
-import data from "./test.xlsx"
+import data from "./menu.xlsx"
 
 const xlsx=require('xlsx')
 
-const sheet=data.Sheets['test'];
+const sheet=data.Sheets['Dinner Front'];
 const dat=xlsx.utils.sheet_to_json(sheet);
 
-console.log(dat);
+(async()=>{
+    const url="https://docs.google.com/spreadsheets/d/e/2PACX-1vTvWeOQoMi3rcDR24H8j3PynBdnMkb4l_AAVa_3a0dcNKCV_KnotLeQdT6oqDuPQ8w0pNjQ2KwM7uqr/pubhtml"
+    const d=await(await fetch(url)).arrayBuffer();
+    const workBook=xlsx.read(d);
+
+    const sheet=workBook.Sheets['Sheet1']
+    const data=xlsx.utils.sheet_to_json(sheet)
+    
+    console.log(data)
+
+})();
 
 
 function alcohol(){
