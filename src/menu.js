@@ -1,24 +1,47 @@
 import dinText from "./assets/menu2edit.png"
 import brkText from "./assets/breakfast2.png"
-import data from "./menu.xlsx"
+import { response } from "express";
+// import { saveAs } from "file-saver";
+// import data from "./menu.xlsx"
 
-const xlsx=require('xlsx')
 
-const sheet=data.Sheets['Dinner Front'];
-const dat=xlsx.utils.sheet_to_json(sheet);
+const xlsx=require('xlsx');
 
-(async()=>{
-    const url="https://docs.google.com/spreadsheets/d/e/2PACX-1vTvWeOQoMi3rcDR24H8j3PynBdnMkb4l_AAVa_3a0dcNKCV_KnotLeQdT6oqDuPQ8w0pNjQ2KwM7uqr/pubhtml"
-    const d=await(await fetch(url)).arrayBuffer();
-    const workBook=xlsx.read(d);
+const url="https://docs.google.com/spreadsheets/d/e/2PACX-1vTvWeOQoMi3rcDR24H8j3PynBdnMkb4l_AAVa_3a0dcNKCV_KnotLeQdT6oqDuPQ8w0pNjQ2KwM7uqr/pubhtml";
 
-    const sheet=workBook.Sheets['Sheet1']
-    const data=xlsx.utils.sheet_to_json(sheet)
-    
-    console.log(data)
+fetch(url).then(response=>response.arrayBuffer()).then(response=>{
+    const workBook=xlsx.read(response);
+    const dinner1=workBook.Sheets['Sheet1'];
+    const dinnerJson=xlsx.utils.sheet_to_json(dinner1);
+    return dinnerJson
+}).then(data => initialize(data)).catch(error=>{
+    console.error("There was a problem with the fetch operation: ", error);
+});
 
-})();
+let din=[]
 
+// function getData(){
+//     const url=
+//     "https://docs.google.com/spreadsheets/d/e/2PACX-1vTvWeOQoMi3rcDR24H8j3PynBdnMkb4l_AAVa_3a0dcNKCV_KnotLeQdT6oqDuPQ8w0pNjQ2KwM7uqr/pubhtml";
+//     return fetch(url).then(response=>response.arrayBuffer()).then(data=>{
+//         const workBook=xlsx.read(data);
+
+//         const dinner1=workBook.Sheets['Sheet1']
+//         const dinnerJson=xlsx.utils.sheet_to_json(dinner1);
+
+//         return dinnerJson;
+//         }).catch(error=>{
+//             console.error('Error fetching data: ', error);
+//             return [];
+//         })
+// }
+
+// let data=getData().then(dataArray=>{
+//     console.log(dataArray);
+//     return dataArray;
+// })
+
+// console.log(data)
 
 function alcohol(){
     const booze=document.createElement('div');
