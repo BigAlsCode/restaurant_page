@@ -1,5 +1,6 @@
 const path=require("path");
 const HtmlWebpackPlugin=require("html-webpack-plugin");
+const { query } = require("express");
 
 module.exports={
     mode: "development",
@@ -8,6 +9,11 @@ module.exports={
         filename: "main.js",
         path: path.resolve(__dirname, "dist"),
         clean: true,
+    },
+    resolve:{
+        alias:{
+            "~":__dirname
+        }
     },
     devtool:"eval-source-map",
     devServer:{
@@ -20,6 +26,22 @@ module.exports={
     ],
     module:{
         rules: [
+            {
+                test:/\.xlsx$/,
+                use:'webpack-xlsx-loader'
+            },
+            {
+                test:/\.(txt|csv|mmdb)$/,
+                use:[
+                    {
+                        loader: 'csv-loader',
+                        options:{
+                            name:"[path][name].[ext]",
+                            emitFile:true,
+                        },
+                    },
+                ],
+            },
             {
                 test: /\.css$/i,
                 use: ["style-loader", "css-loader"],
@@ -34,4 +56,5 @@ module.exports={
             },
         ],
     },
+    
 };

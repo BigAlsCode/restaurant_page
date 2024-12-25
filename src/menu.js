@@ -1,7 +1,47 @@
 import dinText from "./assets/menu2edit.png"
 import brkText from "./assets/breakfast2.png"
-// import { indexOf } from "lodash";
-// import { description } from "commander";
+import { response } from "express";
+// import { saveAs } from "file-saver";
+// import data from "./menu.xlsx"
+
+
+const xlsx=require('xlsx');
+
+const url="https://docs.google.com/spreadsheets/d/e/2PACX-1vTvWeOQoMi3rcDR24H8j3PynBdnMkb4l_AAVa_3a0dcNKCV_KnotLeQdT6oqDuPQ8w0pNjQ2KwM7uqr/pubhtml";
+
+fetch(url).then(response=>response.arrayBuffer()).then(response=>{
+    const workBook=xlsx.read(response);
+    const dinner1=workBook.Sheets['Sheet1'];
+    const dinnerJson=xlsx.utils.sheet_to_json(dinner1);
+    return dinnerJson
+}).then(data => initialize(data)).catch(error=>{
+    console.error("There was a problem with the fetch operation: ", error);
+});
+
+let din=[]
+
+// function getData(){
+//     const url=
+//     "https://docs.google.com/spreadsheets/d/e/2PACX-1vTvWeOQoMi3rcDR24H8j3PynBdnMkb4l_AAVa_3a0dcNKCV_KnotLeQdT6oqDuPQ8w0pNjQ2KwM7uqr/pubhtml";
+//     return fetch(url).then(response=>response.arrayBuffer()).then(data=>{
+//         const workBook=xlsx.read(data);
+
+//         const dinner1=workBook.Sheets['Sheet1']
+//         const dinnerJson=xlsx.utils.sheet_to_json(dinner1);
+
+//         return dinnerJson;
+//         }).catch(error=>{
+//             console.error('Error fetching data: ', error);
+//             return [];
+//         })
+// }
+
+// let data=getData().then(dataArray=>{
+//     console.log(dataArray);
+//     return dataArray;
+// })
+
+// console.log(data)
 
 console.log('testing');
 function alcohol(){
@@ -152,6 +192,56 @@ function dinner(){
                 'Grilled Chicken or Chili. Jalapenos, olives, banana peppers & house blend shredded cheese',
                 'Chicken, Portebella, or Steak: grilled onions and green peppers & house blend shredded cheese'
             ]
+        },
+        sides:{
+            label:[
+                'SEASONED WAFFLE FRIES',
+                'SWEET POTATO FRIES',
+                'BASKET OF FRENCH FRIES',
+                'ONION RINGS',
+                'STEAMED BROCCOLI OR COLE SLAW'
+            ],
+            price:[
+                '&ensp;5', '&ensp;5', '&ensp;4.5: WITH CHEESE(5.5)',
+                '&ensp;5.5', '&ensp;3.5'
+            ],
+            desc:''
+        },
+        soups:{
+            label:[
+                'SOUP',
+                'HOUSE CHILI'
+            ],
+            price:[
+                '&ensp;Cup 5.5 : Bowl 6.5',
+                '&ensp;Cup 5.5 : Bowl 7',
+                'ADD CHEESE 0.75'
+            ],
+            desc:''
+        },
+        wings:{
+            label:['DOZEN WINGS', '10 BONELESS WINGS'],
+            price:['&ensp;14', '&ensp;10'],
+            desc:""
+        },
+        salads:{
+            label:[
+                'GRILLED CHICKEN OR STEAK', 'CALIFORNIA SPRING', 'GREEK',
+                'STRAWBERRY CHICKEN', 'CHICKEN TENDER SALAD', 'HOUSE SALAD'
+            ],
+            price:[
+                '&ensp;12', '&ensp;12 (Add grilled chicken 14 | Grilled salmon 16)',
+                '&ensp;12 (Add grilled chicken 14 | Grilled salmon 16)', '&ensp;13','&ensp;12',
+                '&ensp;SMALL 5 | LARGE 6'
+            ],
+            desc:[
+                'Seasoned Protien:Plain, Cajun, Buffalo or BBQ : Grilled peppers, onions, and mushroms on a bed of lettuce topped with house blended cheese and diced tomatoe',
+                'Artichokes, roasted red peppers, zuchinni, cucumbers, black olives, red onions : served over Arcadia Spring Mix and topped with Bleu Crumble Cheese and Walnuts',
+                'Roasted red peppers, black olives, artichoke hearts, cucumbers : served over Arcadia Spring Mix & topped with Feta Cheese',
+                'Grilled chicken, strawberries, sliced apple : served over Arcadia Spring Mix and topped with craisins, walnuts and Bleu Crumble Cheese',
+                'Crispy or grilled chicken in your choice of sauce(Plain, Buffalo, or Honey Siracha) : Diced tomatoes and house blend shredded cheese atop a bed of lettuce',
+                'Fresh green peppers, mushrooms, sliced red onion and tomatoes atop a bed of lettuce'
+            ]
         }
     };
 
@@ -160,30 +250,6 @@ function dinner(){
         const appTitle=document.createElement('h1');
         appTitle.textContent='Starters';
 
-        // This was made into an object for organization purposes. All lists should be tied to one object
-        // let description={
-        //     label: [
-        //         'SOFT PRETZEL STICKS', 'SPINACH & ARTICHOKE DIP', 'PITA & HOUSE HUMMUS',
-        //         'CHICKEN TENDERS', 'BUFFALO CHICKEN DIP', 'BATTERED CHEESE STICKS',
-        //         'POTATO PANCAKE MIDGIES', 'NACHOS GRANDE', 'QUESADILLA'
-        //     ],
-        //     price: [
-        //         '&ensp;9','&ensp;9','&ensp;8.5',
-        //         '&ensp;9','&ensp;9','&ensp;9',
-        //         '&ensp;8','&ensp;11','&ensp;10'
-        //     ],
-        //     desc:[
-        //         'House beer cheese dip',
-        //         'Toasted wheat or white pita or tri-colored totilla chips',
-        //         'Toasted white or whole wheat pita',
-        //         'Ranch, BBQ or Buffalo Sauce',
-        //         'Toasted white or wheat pita, or Tri-Colored Tortillia chips',
-        //         'With Marinara Sauce',
-        //         'Served up with apple sauce and sourcream on the side',
-        //         'Grilled Chicken or Chili. Jalapenos, olives, banana peppers & house blend shredded cheese',
-        //         'Chicken, Portebella, or Steak: grilled onions and green peppers & house blend shredded cheese'
-        //     ]
-        // }
         pageOneCont[0].appendChild(appTitle);
 
         for(let [index, item] of description.apps.label.entries()){
@@ -195,10 +261,16 @@ function dinner(){
             pageOneCont[0].appendChild(info);
         }    
     })();
-    for(const key in description){
-        console.log(description[key])
-    }
-    // console.log(pageOneCont[0]);
+    // for(const key in description){
+    //     console.log(description[key]);
+    //     for(let index in description[key].label){
+    //         console.log(description[key].label[index]);
+    //         console.log(description[key].price[index]);
+    //         if(description[key].desc[index]!==undefined)
+    //             console.log(description[key].desc[index]);
+    //     }
+    // }
+    
 
     const side=()=>{
         const sides=document.createElement('div');
