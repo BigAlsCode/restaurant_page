@@ -1,9 +1,9 @@
 import dinText from "./assets/menu2edit.png"
 import brkText from "./assets/breakfast2.png"
+import {main} from "./fetchData.js"
 
-const xlsx=require('xlsx');
-
-
+let data=main();
+console.log(data)
 
 function alcohol(){
     const booze=document.createElement('div');

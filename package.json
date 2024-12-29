@@ -11,6 +11,7 @@
   "devDependencies": {
     "css-loader": "^7.1.2",
     "csv-loader": "^3.0.5",
+    "csv-parse": "^5.6.0",
     "fs": "^0.0.1-security",
     "html-loader": "^5.1.0",
     "html-webpack-plugin": "^5.6.0",
@@ -119,6 +120,8 @@
     "get-intrinsic": "^1.2.4",
     "glob-parent": "^5.1.2",
     "glob-to-regexp": "^0.4.1",
+    "google-auth-library": "^9.15.0",
+    "google-spreadsheet": "^4.1.4",
     "gopd": "^1.0.1",
     "graceful-fs": "^4.2.11",
     "handle-thing": "^2.0.1",
