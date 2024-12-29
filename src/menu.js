@@ -2,7 +2,7 @@ import dinText from "./assets/menu2edit.png"
 import brkText from "./assets/breakfast2.png"
 import {main} from "./fetchData.js"
 
-let data=main();
+let data=await main();
 console.log(data)
 
 function alcohol(){
