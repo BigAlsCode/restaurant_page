@@ -107,7 +107,7 @@ function dinner(){
     for(let item of data){
         if(item.Header!=''){
             let container=document.createElement('div');
-            container.className=item.Header;
+            container.className=item.Header.toLowerCase();
             pageOneCont.push(container);
         }
     }
@@ -210,7 +210,7 @@ function dinner(){
     // menu functions to add names, prices and descriptions to menu pages
     (function(){
         const appTitle=document.createElement('h1');
-        appTitle.textContent='Starters';
+        appTitle.textContent=pageOneCont[0].className;
 
         pageOneCont[0].appendChild(appTitle);
 
