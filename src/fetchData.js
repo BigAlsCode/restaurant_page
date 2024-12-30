@@ -1,0 +1,55 @@
+// sheetID you can find in the URL of your spreadsheet after "spreadsheet/d/"
+const sheetId = "1xFkryNUJ6z7jvS6cwxE-CPZ-YDBcq4xAWugDE2j5RWE";
+// sheetName is the name of the TAB in your spreadsheet
+const sheetName = encodeURIComponent("Dinner Front");
+const sheetURL = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?tqx=out:csv&sheet=${sheetName}`;
+
+
+function getData(){
+   return fetch(sheetURL)
+  .then((response) => response.text())
+  .then((csvText) => handleResponse(csvText))
+}
+
+
+function handleResponse(csvText) {
+  let sheetObjects = csvToObjects(csvText);
+  // sheetObjects is now an Array of Objects
+//   console.log(sheetObjects[0]);
+  // ADD CODE HERE
+//   for(let item of sheetObjects){
+//     di.push(item);
+//   }
+    return sheetObjects;
+}
+
+function csvToObjects(csv) {
+  const csvRows = csv.split("\n");
+  const propertyNames = csvSplit(csvRows[0]);
+  let objects = [];
+  for (let i = 1, max = csvRows.length; i < max; i++) {
+    let thisObject = {};
+    let row = csvSplit(csvRows[i]);
+    for (let j = 0, max = row.length; j < max; j++) {
+      thisObject[propertyNames[j]] = row[j];
+      // BELOW 4 LINES WILL CONVERT DATES IN THE "ENROLLED" COLUMN TO JS DATE OBJECTS
+      // if (propertyNames[j] === "Enrolled") {
+      //   thisObject[propertyNames[j]] = new Date(row[j]);
+      // } else {
+      //   thisObject[propertyNames[j]] = row[j];
+      // }
+    }
+    objects.push(thisObject);
+  }
+  return objects;
+}
+
+function csvSplit(row) {
+  return row.split(",").map((val) => val.substring(1, val.length - 1));
+}
+
+export async function main() {
+    const data=await getData();
+    // console.log(data);
+    return data;
+}

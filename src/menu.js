@@ -1,47 +1,9 @@
 import dinText from "./assets/menu2edit.png"
 import brkText from "./assets/breakfast2.png"
-import { response } from "express";
-// import { saveAs } from "file-saver";
-// import data from "./menu.xlsx"
+import {main} from "./fetchData.js"
 
+let data=await main();
 
-const xlsx=require('xlsx');
-
-const url="https://docs.google.com/spreadsheets/d/e/2PACX-1vTvWeOQoMi3rcDR24H8j3PynBdnMkb4l_AAVa_3a0dcNKCV_KnotLeQdT6oqDuPQ8w0pNjQ2KwM7uqr/pubhtml";
-
-fetch(url).then(response=>response.arrayBuffer()).then(response=>{
-    const workBook=xlsx.read(response);
-    const dinner1=workBook.Sheets['Sheet1'];
-    const dinnerJson=xlsx.utils.sheet_to_json(dinner1);
-    return dinnerJson
-}).then(data => initialize(data)).catch(error=>{
-    console.error("There was a problem with the fetch operation: ", error);
-});
-
-let din=[]
-
-// function getData(){
-//     const url=
-//     "https://docs.google.com/spreadsheets/d/e/2PACX-1vTvWeOQoMi3rcDR24H8j3PynBdnMkb4l_AAVa_3a0dcNKCV_KnotLeQdT6oqDuPQ8w0pNjQ2KwM7uqr/pubhtml";
-//     return fetch(url).then(response=>response.arrayBuffer()).then(data=>{
-//         const workBook=xlsx.read(data);
-
-//         const dinner1=workBook.Sheets['Sheet1']
-//         const dinnerJson=xlsx.utils.sheet_to_json(dinner1);
-
-//         return dinnerJson;
-//         }).catch(error=>{
-//             console.error('Error fetching data: ', error);
-//             return [];
-//         })
-// }
-
-// let data=getData().then(dataArray=>{
-//     console.log(dataArray);
-//     return dataArray;
-// })
-
-// console.log(data)
 
 console.log('testing');
 function alcohol(){
@@ -121,6 +83,7 @@ function alcohol(){
 }
 
 function dinner(){
+    
     const din=document.createElement('div');
     const dinImg=document.createElement('div');
     const img=document.createElement('img');
@@ -139,19 +102,19 @@ function dinner(){
     pageTwo.className='dinner2';
 
     // create all div elements for page one and page two of dinner menu
-    const pageOneContainerNames=['starters', 'sides', 'soup', 'wings', 'salad', 'pizza'];
     const pageTwoContainerNames=['sandwich', 'burger', 'hoagie', 'kids'];
+    let pageOneCont=[];
 
-    let pageOneCont=[]
-
-    for(let item of pageOneContainerNames){
-        let container=document.createElement('div');
-        container.className=item;
-        pageOneCont.push(container);
+    for(let item of data){
+        if(item.Header!=''){
+            let container=document.createElement('div');
+            container.className=item.Header.toLowerCase();
+            pageOneCont.push(container);
+        }
     }
-
     
-
+    console.log(pageOneCont)
+    
     // creates the recurring elements found in each section of the menu
     const elements=(title, price, desc)=>{
         const name=document.createElement('h2');
@@ -248,7 +211,7 @@ function dinner(){
     // menu functions to add names, prices and descriptions to menu pages
     (function(){
         const appTitle=document.createElement('h1');
-        appTitle.textContent='Starters';
+        appTitle.textContent=pageOneCont[0].className;
 
         pageOneCont[0].appendChild(appTitle);
 
