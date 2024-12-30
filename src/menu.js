@@ -3,7 +3,7 @@ import brkText from "./assets/breakfast2.png"
 import {main} from "./fetchData.js"
 
 let data=await main();
-console.log(data)
+
 
 function alcohol(){
     const booze=document.createElement('div');
@@ -82,6 +82,7 @@ function alcohol(){
 }
 
 function dinner(){
+    
     const din=document.createElement('div');
     const dinImg=document.createElement('div');
     const img=document.createElement('img');
@@ -100,19 +101,19 @@ function dinner(){
     pageTwo.className='dinner2';
 
     // create all div elements for page one and page two of dinner menu
-    const pageOneContainerNames=['starters', 'sides', 'soup', 'wings', 'salad', 'pizza'];
     const pageTwoContainerNames=['sandwich', 'burger', 'hoagie', 'kids'];
+    let pageOneCont=[];
 
-    let pageOneCont=[]
-
-    for(let item of pageOneContainerNames){
-        let container=document.createElement('div');
-        container.className=item;
-        pageOneCont.push(container);
+    for(let item of data){
+        if(item.Header!=''){
+            let container=document.createElement('div');
+            container.className=item.Header;
+            pageOneCont.push(container);
+        }
     }
-
     
-
+    console.log(pageOneCont)
+    
     // creates the recurring elements found in each section of the menu
     const elements=(title, price, desc)=>{
         const name=document.createElement('h2');
