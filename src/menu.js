@@ -109,6 +109,9 @@ function dinner(){
         if(item.Header!=''){
             let container=document.createElement('div');
             container.className=item.Header.toLowerCase();
+            let appTitle=document.createElement('h1');
+            appTitle.textContent=item.Header;
+            container.appendChild(appTitle)
             pageOneCont.push(container);
         }
     }
@@ -210,10 +213,10 @@ function dinner(){
 
     // menu functions to add names, prices and descriptions to menu pages
     (function(){
-        const appTitle=document.createElement('h1');
-        appTitle.textContent=pageOneCont[0].className;
+        // const appTitle=document.createElement('h1');
+        // appTitle.textContent=pageOneCont[0].className;
 
-        pageOneCont[0].appendChild(appTitle);
+        // pageOneCont[0].appendChild(appTitle);
 
         for(let [index, item] of description.apps.label.entries()){
             
