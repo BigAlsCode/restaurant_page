@@ -300,8 +300,7 @@ function dinner(){
     // }
 
     pageOne.appendChild(pageOneCont[0]);
-    // pageOne.appendChild(side());
-    // pageOne.appendChild(soups());
+    
 
     dinMen.appendChild(pageOne);
     dinImg.appendChild(img);
