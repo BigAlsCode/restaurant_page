@@ -235,75 +235,70 @@ function dinner(){
     // }
     
 
-    const side=()=>{
-        const sides=document.createElement('div');
-        const title=document.createElement('h1');
-        title.textContent='Sides';
-        sides.appendChild(title);
+    // const side=()=>{
+    //     const sides=document.createElement('div');
+    //     const title=document.createElement('h1');
+    //     title.textContent='Sides';
+    //     sides.appendChild(title);
 
-        let description={
-            label:[
-                'SEASONED WAFFLE FRIES',
-                'SWEET POTATO FRIES',
-                'BASKET OF FRENCH FRIES',
-                'ONION RINGS',
-                'STEAMED BROCCOLI OR COLE SLAW'
-            ],
-            price:[
-                '&ensp;5', '&ensp;5', '&ensp;4.5: WITH CHEESE(5.5)',
-                '&ensp;5.5', '&ensp;3.5'
-            ]
-        }
+    //     let description={
+    //         label:[
+    //             'SEASONED WAFFLE FRIES',
+    //             'SWEET POTATO FRIES',
+    //             'BASKET OF FRENCH FRIES',
+    //             'ONION RINGS',
+    //             'STEAMED BROCCOLI OR COLE SLAW'
+    //         ],
+    //         price:[
+    //             '&ensp;5', '&ensp;5', '&ensp;4.5: WITH CHEESE(5.5)',
+    //             '&ensp;5.5', '&ensp;3.5'
+    //         ]
+    //     }
 
-        for(let [index, item] of description.label.entries()){
-            let [name, cost, info]=elements(item, description.price[index], null);
+    //     for(let [index, item] of description.label.entries()){
+    //         let [name, cost, info]=elements(item, description.price[index], null);
 
-            name.appendChild(cost);
-            sides.appendChild(name);
-        }
-        return sides;
-    }
+    //         name.appendChild(cost);
+    //         sides.appendChild(name);
+    //     }
+    //     return sides;
+    // }
 
-    const soups=()=>{
-        const soup=document.createElement('div');
-        const title=document.createElement('h1');
-        soup.className='soup';
-        title.textContent='Soups & Famous House Chili';
-        soup.appendChild(title);
+    // const soups=()=>{
+    //     const soup=document.createElement('div');
+    //     const title=document.createElement('h1');
+    //     soup.className='soup';
+    //     title.textContent='Soups & Famous House Chili';
+    //     soup.appendChild(title);
 
-        let description={
-            label:[
-                'SOUP',
-                'HOUSE CHILI'
-            ],
-            price:[
-                '&ensp;Cup 5.5 : Bowl 6.5',
-                '&ensp;Cup 5.5 : Bowl 7',
-                'ADD CHEESE 0.75'
-            ]
-        }
+    //     let description={
+    //         label:[
+    //             'SOUP',
+    //             'HOUSE CHILI'
+    //         ],
+    //         price:[
+    //             '&ensp;Cup 5.5 : Bowl 6.5',
+    //             '&ensp;Cup 5.5 : Bowl 7',
+    //             'ADD CHEESE 0.75'
+    //         ]
+    //     }
 
-        for(let [index, item] of description.label.entries()){
-            let [name, cost, desc]=elements(item, description.price[index], '');
+    //     for(let [index, item] of description.label.entries()){
+    //         let [name, cost, desc]=elements(item, description.price[index], '');
 
-            name.appendChild(cost);
-            soup.appendChild(name);
-        }
+    //         name.appendChild(cost);
+    //         soup.appendChild(name);
+    //     }
 
-        let [end, endSpan, info]=elements(null, description.price[description.price.length-1], null);
-        end.appendChild(endSpan);
-        soup.appendChild(end);
-        return soup;
-    }
-
-    const wings=()=>{
-        const wing=document.createElement('div');
-
-    }
+    //     let [end, endSpan, info]=elements(null, description.price[description.price.length-1], null);
+    //     end.appendChild(endSpan);
+    //     soup.appendChild(end);
+    //     return soup;
+    // }
 
     pageOne.appendChild(pageOneCont[0]);
-    pageOne.appendChild(side());
-    pageOne.appendChild(soups());
+    // pageOne.appendChild(side());
+    // pageOne.appendChild(soups());
 
     dinMen.appendChild(pageOne);
     dinImg.appendChild(img);
