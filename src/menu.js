@@ -2,11 +2,9 @@ import dinText from "./assets/menu2edit.png"
 import brkText from "./assets/breakfast2.png"
 import {main} from "./fetchData.js"
 
-let data=await main();
+let [dinnerFront, dinnerBack]=await main();
 
-console.log(data)
 
-console.log('testing');
 function alcohol(){
     const booze=document.createElement('div');
     const boozeMen=document.createElement('div');
@@ -122,7 +120,7 @@ function dinner(){
         return [name, cost, info];
     }
 
-    for(let item of data){
+    for(let item of dinnerFront){
         if(item.Header!=''){
             var container=document.createElement('div');
             container.className=item.Header.toLowerCase();

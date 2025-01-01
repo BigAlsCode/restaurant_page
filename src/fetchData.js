@@ -1,20 +1,20 @@
 // sheetID you can find in the URL of your spreadsheet after "spreadsheet/d/"
 const sheetId = "1xFkryNUJ6z7jvS6cwxE-CPZ-YDBcq4xAWugDE2j5RWE";
 // sheetName is the name of the TAB in your spreadsheet
-const sheetName = encodeURIComponent("Dinner Front");
-const sheetURL = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?tqx=out:csv&sheet=${sheetName}`;
+const sheets=['Dinner Front', 'Dinner Back'];
 
 
-function getData(){
-   return fetch(sheetURL)
+
+function getData(sheetURL){
+  return fetch(sheetURL)
   .then((response) => response.text())
-  .then((csvText) => handleResponse(csvText))
+  .then((csvText) => handleResponse(csvText));
 }
 
 
 function handleResponse(csvText) {
   let sheetObjects = csvToObjects(csvText);
-    return sheetObjects;
+  return sheetObjects;
 }
 
 function csvToObjects(csv) {
@@ -44,7 +44,13 @@ function csvSplit(row) {
 }
 
 export async function main() {
-    const data=await getData();
-    // console.log(data);
-    return data;
+  let data=[];
+  for(let sheet of sheets){
+    const sheetName = encodeURIComponent(sheet);
+    const sheetURL = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?tqx=out:csv&sheet=${sheetName}`;
+
+    const d=await getData(sheetURL);
+    data.push(d);
+  }
+  return data;
 }
