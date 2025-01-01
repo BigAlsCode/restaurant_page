@@ -103,7 +103,7 @@ function dinner(){
     pageTwo.className='dinner2';
 
     // create all div elements for page one and page two of dinner menu
-    const pageTwoContainerNames=['sandwich', 'burger', 'hoagie', 'kids'];
+    const pageTwoCont=[];
     let pageOneCont=[];
     
     // creates the recurring elements found in each section of the menu
@@ -131,20 +131,23 @@ function dinner(){
             container.appendChild(appTitle)
             pageOneCont.push(container);
         }
-        if(item.Item!=''){
-            // console.log(item.Description)
+        if(item.Item!=''||item.Price!=''){
+            
             var [name, cost, info]=elements(item.Item, item.Price, item.Description);
             name.appendChild(cost);
             container.appendChild(name);
             container.appendChild(info);
-            // console.log(info)
+            
+        }
+        if(item.Special!=''){
+            
+            container.innerHTML+=item.Special
         }
     }
     
-    // console.log(pageOneCont[0].childNodes)
-
-    pageOne.appendChild(pageOneCont[0]);
-    
+    for(let container of pageOneCont){
+        pageOne.appendChild(container);
+    }
 
     dinMen.appendChild(pageOne);
     dinImg.appendChild(img);
