@@ -4,6 +4,7 @@ import {main} from "./fetchData.js"
 
 let data=await main();
 
+console.log(data)
 
 console.log('testing');
 function alcohol(){
@@ -104,19 +105,6 @@ function dinner(){
     // create all div elements for page one and page two of dinner menu
     const pageTwoContainerNames=['sandwich', 'burger', 'hoagie', 'kids'];
     let pageOneCont=[];
-
-    for(let item of data){
-        if(item.Header!=''){
-            let container=document.createElement('div');
-            container.className=item.Header.toLowerCase();
-            let appTitle=document.createElement('h1');
-            appTitle.textContent=item.Header;
-            container.appendChild(appTitle)
-            pageOneCont.push(container);
-        }
-    }
-    
-    console.log(pageOneCont)
     
     // creates the recurring elements found in each section of the menu
     const elements=(title, price, desc)=>{
@@ -126,7 +114,7 @@ function dinner(){
 
         name.innerHTML=title;
         cost.innerHTML=price;
-        info.textContent=desc;
+        info.innerHTML=desc;
 
         cost.className='price';
 
@@ -134,170 +122,26 @@ function dinner(){
         return [name, cost, info];
     }
 
-
-    let description={
-        apps: {
-            label: [
-                'SOFT PRETZEL STICKS', 'SPINACH & ARTICHOKE DIP', 'PITA & HOUSE HUMMUS',
-                'CHICKEN TENDERS', 'BUFFALO CHICKEN DIP', 'BATTERED CHEESE STICKS',
-                'POTATO PANCAKE MIDGIES', 'NACHOS GRANDE', 'QUESADILLA'
-            ],
-            price: [
-                '&ensp;9','&ensp;9','&ensp;8.5',
-                '&ensp;9','&ensp;9','&ensp;9',
-                '&ensp;8','&ensp;11','&ensp;10'
-            ],
-            desc:[
-                'House beer cheese dip',
-                'Toasted wheat or white pita or tri-colored totilla chips',
-                'Toasted white or whole wheat pita',
-                'Ranch, BBQ or Buffalo Sauce',
-                'Toasted white or wheat pita, or Tri-Colored Tortillia chips',
-                'With Marinara Sauce',
-                'Served up with apple sauce and sourcream on the side',
-                'Grilled Chicken or Chili. Jalapenos, olives, banana peppers & house blend shredded cheese',
-                'Chicken, Portebella, or Steak: grilled onions and green peppers & house blend shredded cheese'
-            ]
-        },
-        sides:{
-            label:[
-                'SEASONED WAFFLE FRIES',
-                'SWEET POTATO FRIES',
-                'BASKET OF FRENCH FRIES',
-                'ONION RINGS',
-                'STEAMED BROCCOLI OR COLE SLAW'
-            ],
-            price:[
-                '&ensp;5', '&ensp;5', '&ensp;4.5: WITH CHEESE(5.5)',
-                '&ensp;5.5', '&ensp;3.5'
-            ],
-            desc:''
-        },
-        soups:{
-            label:[
-                'SOUP',
-                'HOUSE CHILI'
-            ],
-            price:[
-                '&ensp;Cup 5.5 : Bowl 6.5',
-                '&ensp;Cup 5.5 : Bowl 7',
-                'ADD CHEESE 0.75'
-            ],
-            desc:''
-        },
-        wings:{
-            label:['DOZEN WINGS', '10 BONELESS WINGS'],
-            price:['&ensp;14', '&ensp;10'],
-            desc:""
-        },
-        salads:{
-            label:[
-                'GRILLED CHICKEN OR STEAK', 'CALIFORNIA SPRING', 'GREEK',
-                'STRAWBERRY CHICKEN', 'CHICKEN TENDER SALAD', 'HOUSE SALAD'
-            ],
-            price:[
-                '&ensp;12', '&ensp;12 (Add grilled chicken 14 | Grilled salmon 16)',
-                '&ensp;12 (Add grilled chicken 14 | Grilled salmon 16)', '&ensp;13','&ensp;12',
-                '&ensp;SMALL 5 | LARGE 6'
-            ],
-            desc:[
-                'Seasoned Protien:Plain, Cajun, Buffalo or BBQ : Grilled peppers, onions, and mushroms on a bed of lettuce topped with house blended cheese and diced tomatoe',
-                'Artichokes, roasted red peppers, zuchinni, cucumbers, black olives, red onions : served over Arcadia Spring Mix and topped with Bleu Crumble Cheese and Walnuts',
-                'Roasted red peppers, black olives, artichoke hearts, cucumbers : served over Arcadia Spring Mix & topped with Feta Cheese',
-                'Grilled chicken, strawberries, sliced apple : served over Arcadia Spring Mix and topped with craisins, walnuts and Bleu Crumble Cheese',
-                'Crispy or grilled chicken in your choice of sauce(Plain, Buffalo, or Honey Siracha) : Diced tomatoes and house blend shredded cheese atop a bed of lettuce',
-                'Fresh green peppers, mushrooms, sliced red onion and tomatoes atop a bed of lettuce'
-            ]
+    for(let item of data){
+        if(item.Header!=''){
+            var container=document.createElement('div');
+            container.className=item.Header.toLowerCase();
+            let appTitle=document.createElement('h1');
+            appTitle.textContent=item.Header;
+            container.appendChild(appTitle)
+            pageOneCont.push(container);
         }
-    };
-
-    // menu functions to add names, prices and descriptions to menu pages
-    (function(){
-        // const appTitle=document.createElement('h1');
-        // appTitle.textContent=pageOneCont[0].className;
-
-        // pageOneCont[0].appendChild(appTitle);
-
-        for(let [index, item] of description.apps.label.entries()){
-            
-            let [name, cost, info]=elements(item, description.apps.price[index], description.apps.desc[index])
-            
+        if(item.Item!=''){
+            // console.log(item.Description)
+            var [name, cost, info]=elements(item.Item, item.Price, item.Description);
             name.appendChild(cost);
-            pageOneCont[0].appendChild(name);
-            pageOneCont[0].appendChild(info);
-        }    
-    })();
-    // for(const key in description){
-    //     console.log(description[key]);
-    //     for(let index in description[key].label){
-    //         console.log(description[key].label[index]);
-    //         console.log(description[key].price[index]);
-    //         if(description[key].desc[index]!==undefined)
-    //             console.log(description[key].desc[index]);
-    //     }
-    // }
+            container.appendChild(name);
+            container.appendChild(info);
+            // console.log(info)
+        }
+    }
     
-
-    // const side=()=>{
-    //     const sides=document.createElement('div');
-    //     const title=document.createElement('h1');
-    //     title.textContent='Sides';
-    //     sides.appendChild(title);
-
-    //     let description={
-    //         label:[
-    //             'SEASONED WAFFLE FRIES',
-    //             'SWEET POTATO FRIES',
-    //             'BASKET OF FRENCH FRIES',
-    //             'ONION RINGS',
-    //             'STEAMED BROCCOLI OR COLE SLAW'
-    //         ],
-    //         price:[
-    //             '&ensp;5', '&ensp;5', '&ensp;4.5: WITH CHEESE(5.5)',
-    //             '&ensp;5.5', '&ensp;3.5'
-    //         ]
-    //     }
-
-    //     for(let [index, item] of description.label.entries()){
-    //         let [name, cost, info]=elements(item, description.price[index], null);
-
-    //         name.appendChild(cost);
-    //         sides.appendChild(name);
-    //     }
-    //     return sides;
-    // }
-
-    // const soups=()=>{
-    //     const soup=document.createElement('div');
-    //     const title=document.createElement('h1');
-    //     soup.className='soup';
-    //     title.textContent='Soups & Famous House Chili';
-    //     soup.appendChild(title);
-
-    //     let description={
-    //         label:[
-    //             'SOUP',
-    //             'HOUSE CHILI'
-    //         ],
-    //         price:[
-    //             '&ensp;Cup 5.5 : Bowl 6.5',
-    //             '&ensp;Cup 5.5 : Bowl 7',
-    //             'ADD CHEESE 0.75'
-    //         ]
-    //     }
-
-    //     for(let [index, item] of description.label.entries()){
-    //         let [name, cost, desc]=elements(item, description.price[index], '');
-
-    //         name.appendChild(cost);
-    //         soup.appendChild(name);
-    //     }
-
-    //     let [end, endSpan, info]=elements(null, description.price[description.price.length-1], null);
-    //     end.appendChild(endSpan);
-    //     soup.appendChild(end);
-    //     return soup;
-    // }
+    // console.log(pageOneCont[0].childNodes)
 
     pageOne.appendChild(pageOneCont[0]);
     

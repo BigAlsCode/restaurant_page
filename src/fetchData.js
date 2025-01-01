@@ -14,12 +14,6 @@ function getData(){
 
 function handleResponse(csvText) {
   let sheetObjects = csvToObjects(csvText);
-  // sheetObjects is now an Array of Objects
-//   console.log(sheetObjects[0]);
-  // ADD CODE HERE
-//   for(let item of sheetObjects){
-//     di.push(item);
-//   }
     return sheetObjects;
 }
 
@@ -45,7 +39,8 @@ function csvToObjects(csv) {
 }
 
 function csvSplit(row) {
-  return row.split(",").map((val) => val.substring(1, val.length - 1));
+  const regex=/,(?=(?:[^"]*"[^"]*")*[^"]*$)/
+  return row.split(regex).map((val) => val.substring(1, val.length-1).replace(/"/g,''));
 }
 
 export async function main() {
