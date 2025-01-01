@@ -100,9 +100,7 @@ function dinner(){
     pageOne.className='dinner1';
     pageTwo.className='dinner2';
 
-    // create all div elements for page one and page two of dinner menu
-    const pageTwoCont=[];
-    let pageOneCont=[];
+    
     
     // creates the recurring elements found in each section of the menu
     const elements=(title, price, desc)=>{
@@ -120,34 +118,47 @@ function dinner(){
         return [name, cost, info];
     }
 
-    for(let item of dinnerFront){
-        if(item.Header!=''){
-            var container=document.createElement('div');
-            container.className=item.Header.toLowerCase();
-            let appTitle=document.createElement('h1');
-            appTitle.textContent=item.Header;
-            container.appendChild(appTitle)
-            pageOneCont.push(container);
+    //Pushes all items passed from array of objects into containers for HTML page
+    const pageInfo=(items)=>{
+        let pageArr=[];
+        for(let item of items){
+            if(item.Header!=''){
+                var container=document.createElement('div');
+                container.className=item.Header.toLowerCase();
+                let appTitle=document.createElement('h1');
+                appTitle.textContent=item.Header;
+                container.appendChild(appTitle)
+                pageArr.push(container);
+            }
+            if(item.Item!=''||item.Price!=''){
+                
+                var [name, cost, info]=elements(item.Item, item.Price, item.Description);
+                name.appendChild(cost);
+                container.appendChild(name);
+                container.appendChild(info);
+                
+            }
+            if(item.Special!=''){
+                
+                container.innerHTML+=item.Special
+            }
         }
-        if(item.Item!=''||item.Price!=''){
-            
-            var [name, cost, info]=elements(item.Item, item.Price, item.Description);
-            name.appendChild(cost);
-            container.appendChild(name);
-            container.appendChild(info);
-            
-        }
-        if(item.Special!=''){
-            
-            container.innerHTML+=item.Special
-        }
+        return pageArr;
     }
+
+    // create all div elements for page one and page two of dinner menu
+    const pageTwoCont=pageInfo(dinnerBack);
+    const pageOneCont=pageInfo(dinnerFront);
     
     for(let container of pageOneCont){
         pageOne.appendChild(container);
     }
+    for(let container of pageTwoCont){
+        pageTwo.appendChild(container);
+    }
 
     dinMen.appendChild(pageOne);
+    dinMen.appendChild(pageTwo);
     dinImg.appendChild(img);
     din.appendChild(dinImg);
     din.appendChild(dinMen);
