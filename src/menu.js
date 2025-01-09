@@ -166,5 +166,22 @@ function dinner(){
     return din;
 }
 
+function breakfast(){
+    const breakFast=document.createElement('div');
+    const container=document.createElement('div');
+    const breakText=document.createElement('div');
+    const image=document.createElement('img');
 
+    breakFast.className='breakfast';
+    container.className='container';
+    breakText.className='breakfastText';
+    image.src=brkText;
+    image.alt='Breakfast text';
+
+    breakText.appendChild(image);
+    container.appendChild(breakText);
+
+
+    breakFast.appendChild(container);
+}
 export {alcohol, dinner}
