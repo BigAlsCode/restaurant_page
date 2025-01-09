@@ -1,7 +1,7 @@
 // sheetID you can find in the URL of your spreadsheet after "spreadsheet/d/"
 const sheetId = "1xFkryNUJ6z7jvS6cwxE-CPZ-YDBcq4xAWugDE2j5RWE";
 // sheetName is the name of the TAB in your spreadsheet
-const sheets=['Dinner Front', 'Dinner Back', 'Breakfast Front', 'Breakfast Back'];
+const sheets=['Dinner Front', 'Dinner Back', 'Breakfast Front', 'Breakfast Back', 'Special Events'];
 
 
 

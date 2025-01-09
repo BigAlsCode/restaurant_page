@@ -1,6 +1,6 @@
 import "./styles.css"
 import {homeSplash, homeMessage} from "./home.js";
-import { alcohol, dinner, breakfast} from "./menu.js";
+import { alcohol, dinner, breakfast, events} from "./menu.js";
 
 
 

@@ -2,7 +2,7 @@ import dinText from "./assets/menu2edit.png"
 import brkText from "./assets/breakfast2.png"
 import {main} from "./fetchData.js"
 
-let [dinnerFront, dinnerBack, breakFront, breakBack]=await main();
+let [dinnerFront, dinnerBack, breakFront, breakBack, specialDays]=await main();
 
 function getItems(){
     // creates the recurring elements found in each section of the menu
@@ -213,4 +213,9 @@ function breakfast(){
 
     return breakFast;
 }
-export {alcohol, dinner, breakfast}
+
+function events(){
+    
+    console.log(specialDays)
+}
+export {alcohol, dinner, breakfast, events}
