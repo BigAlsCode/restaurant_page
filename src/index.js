@@ -1,6 +1,6 @@
 import "./styles.css"
 import {homeSplash, homeMessage} from "./home.js";
-import { alcohol, dinner } from "./menu.js";
+import { alcohol, dinner, breakfast} from "./menu.js";
 
 
 
@@ -14,3 +14,4 @@ content.appendChild(homeSplash());
 content.appendChild(homeMessage());
 content.appendChild(alcohol());
 content.appendChild(dinner());
+content.appendChild(breakfast());

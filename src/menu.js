@@ -2,10 +2,54 @@ import dinText from "./assets/menu2edit.png"
 import brkText from "./assets/breakfast2.png"
 import {main} from "./fetchData.js"
 
-let [dinnerFront, dinnerBack]=await main();
+let [dinnerFront, dinnerBack, breakFront, breakBack]=await main();
 
-function getItems(items){
+function getItems(){
+    // creates the recurring elements found in each section of the menu
+    const elements=(title, price, desc)=>{
+        const name=document.createElement('h2');
+        const cost=document.createElement('span');
+        const info=document.createElement('p')
+
+        name.innerHTML=title;
+        cost.innerHTML=price;
+        info.innerHTML=desc;
+
+        cost.className='price';
+
+        
+        return [name, cost, info];
+    }
+
+    //Pushes all items passed from array of objects into containers for HTML page
+    const pageInfo=(items)=>{
+        let pageArr=[];
+        for(let item of items){
+            if(item.Header!=''){
+                var container=document.createElement('div');
+                container.className=item.Header.toLowerCase();
+                let appTitle=document.createElement('h1');
+                appTitle.textContent=item.Header;
+                container.appendChild(appTitle)
+                pageArr.push(container);
+            }
+            if(item.Item!=''||item.Price!=''){
+                
+                var [name, cost, info]=elements(item.Item, item.Price, item.Description);
+                name.appendChild(cost);
+                container.appendChild(name);
+                container.appendChild(info);
+                
+            }
+            if(item.Special!=''){
+                
+                container.innerHTML+=item.Special
+            }
+        }
+        return pageArr;
+    }
     
+    return {pageInfo};
 }
 
 function alcohol(){
@@ -103,56 +147,10 @@ function dinner(){
     pageOne.className='dinner1';
     pageTwo.className='dinner2';
 
-    
-    
-    // creates the recurring elements found in each section of the menu
-    const elements=(title, price, desc)=>{
-        const name=document.createElement('h2');
-        const cost=document.createElement('span');
-        const info=document.createElement('p')
-
-        name.innerHTML=title;
-        cost.innerHTML=price;
-        info.innerHTML=desc;
-
-        cost.className='price';
-
-        
-        return [name, cost, info];
-    }
-
-    //Pushes all items passed from array of objects into containers for HTML page
-    const pageInfo=(items)=>{
-        let pageArr=[];
-        for(let item of items){
-            if(item.Header!=''){
-                var container=document.createElement('div');
-                container.className=item.Header.toLowerCase();
-                let appTitle=document.createElement('h1');
-                appTitle.textContent=item.Header;
-                container.appendChild(appTitle)
-                pageArr.push(container);
-            }
-            if(item.Item!=''||item.Price!=''){
-                
-                var [name, cost, info]=elements(item.Item, item.Price, item.Description);
-                name.appendChild(cost);
-                container.appendChild(name);
-                container.appendChild(info);
-                
-            }
-            if(item.Special!=''){
-                
-                container.innerHTML+=item.Special
-            }
-        }
-        return pageArr;
-    }
-
     // create all div elements for page one and page two of dinner menu
-    const pageTwoCont=pageInfo(dinnerBack);
-    const pageOneCont=pageInfo(dinnerFront);
-    
+    const pageTwoCont=getItems().pageInfo(dinnerBack);
+    const pageOneCont=getItems().pageInfo(dinnerFront);
+
     for(let container of pageOneCont){
         pageOne.appendChild(container);
     }
@@ -196,6 +194,23 @@ function breakfast(){
     pageOne.className='breakfast1';
     pageTwo.className='breakfast2';
 
+    const pageOneCont=getItems().pageInfo(breakFront);
+    const pageTwoCont=getItems().pageInfo(breakBack);
+
+    for(let cont of pageOneCont){
+        pageOne.appendChild(cont);
+    }
+    breakMenu.appendChild(pageOne);
+    
+    for(let cont of pageTwoCont){
+        pageTwo.appendChild(cont);
+    }
+    breakMenu.appendChild(pageTwo);
+
+    contWrap.appendChild(breakMenu);
+    container.appendChild(contWrap);
     breakFast.appendChild(container);
+
+    return breakFast;
 }
-export {alcohol, dinner}
+export {alcohol, dinner, breakfast}
