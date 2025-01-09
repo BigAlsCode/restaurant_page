@@ -15,3 +15,4 @@ content.appendChild(homeMessage());
 content.appendChild(alcohol());
 content.appendChild(dinner());
 content.appendChild(breakfast());
+content.appendChild(events());

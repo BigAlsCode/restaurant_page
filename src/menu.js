@@ -1,5 +1,6 @@
 import dinText from "./assets/menu2edit.png"
 import brkText from "./assets/breakfast2.png"
+import specialsText from "./assets/specials2.png"
 import {main} from "./fetchData.js"
 
 let [dinnerFront, dinnerBack, breakFront, breakBack, specialDays]=await main();
@@ -215,7 +216,41 @@ function breakfast(){
 }
 
 function events(){
+    // events splash content
+    const event=document.createElement('div');
+    const container=document.createElement('div');
+    const eventText=document.createElement('div');
+    const image=document.createElement('img');
     
-    console.log(specialDays)
+    event.className='events';
+    container.className='container';
+    eventText.className='eventBanner';
+    image.src=specialsText;
+    image.alt='events banner';
+
+    eventText.appendChild(image);
+    container.appendChild(eventText);
+    
+    // events description content
+    const eventWrap=document.createElement('div');
+    eventWrap.className='event-wrap';
+
+    const specials=(item)=>{
+        const day=document.createElement('span');
+        const event=document.createElement('span');
+
+        day.className='highlights';
+        event.className='event_list';
+    }
+
+    for(let day of specialDays){
+        console.log(day);
+        const daily=document.createElement('div');
+        daily.className='day';
+        eventWrap.appendChild(daily)
+    }
+    console.log(eventWrap)
+    event.appendChild(container);
+    return event;
 }
 export {alcohol, dinner, breakfast, events}
