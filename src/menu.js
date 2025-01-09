@@ -4,6 +4,9 @@ import {main} from "./fetchData.js"
 
 let [dinnerFront, dinnerBack]=await main();
 
+function getItems(items){
+    
+}
 
 function alcohol(){
     const booze=document.createElement('div');
@@ -172,6 +175,7 @@ function breakfast(){
     const breakText=document.createElement('div');
     const image=document.createElement('img');
 
+    // All containers for the header styling of breakfast menu
     breakFast.className='breakfast';
     container.className='container';
     breakText.className='breakfastText';
@@ -181,6 +185,16 @@ function breakfast(){
     breakText.appendChild(image);
     container.appendChild(breakText);
 
+    // containers for the actual breakfast menu's
+    const contWrap=document.createElement('div');
+    const breakMenu=document.createElement('div');
+    const pageOne=document.createElement('div');
+    const pageTwo=document.createElement('div');
+
+    contWrap.className='content-wrap';
+    breakMenu.className='breakfastMenu';
+    pageOne.className='breakfast1';
+    pageTwo.className='breakfast2';
 
     breakFast.appendChild(container);
 }
