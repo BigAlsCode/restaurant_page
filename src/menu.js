@@ -261,4 +261,25 @@ function events(){
     event.appendChild(container);
     return event;
 }
+
+import fb from "./assets/facebook.png";
+import twitter from "./assets/twitter.png";
+import insta from "./assets/instagram_logo.png";
+
+function contact(){
+    const footer=document.createElement('footer');
+    const container=document.createElement('div');
+    const footContent=document.createElement('div');
+    
+    footer.className='site-footer contact';
+    container.className='container';
+    footContent.className='footerContent';
+
+    
+
+    container.appendChild(footContent);
+    footer.appendChild(container);
+    return footer;
+}
+
 export {alcohol, dinner, breakfast, events}
