@@ -235,21 +235,29 @@ function events(){
     const eventWrap=document.createElement('div');
     eventWrap.className='event-wrap';
 
+    // Takes object passed and creates elements for inner daily container
     const specials=(item)=>{
         const day=document.createElement('span');
         const event=document.createElement('span');
-
+        
         day.className='highlights';
         event.className='event_list';
+        day.innerHTML=item.Day;
+        event.innerHTML=item.Event;
+        return [day, event];
     }
 
     for(let day of specialDays){
-        console.log(day);
+        
         const daily=document.createElement('div');
         daily.className='day';
+
+        let [specialDay, specialEvent]=specials(day);
+        daily.appendChild(specialDay);
+        daily.appendChild(specialEvent);
         eventWrap.appendChild(daily)
     }
-    console.log(eventWrap)
+    container.appendChild(eventWrap)
     event.appendChild(container);
     return event;
 }
