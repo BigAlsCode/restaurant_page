@@ -3,7 +3,7 @@ import brkText from "./assets/breakfast2.png"
 import specialsText from "./assets/specials2.png"
 import {main} from "./fetchData.js"
 
-let [dinnerFront, dinnerBack, breakFront, breakBack, specialDays]=await main();
+let [dinnerFront, dinnerBack, breakFront, breakBack, specialDays, contactInfo]=await main();
 
 function getItems(){
     // creates the recurring elements found in each section of the menu
@@ -275,11 +275,40 @@ function contact(){
     container.className='container';
     footContent.className='footerContent';
 
-    
+    const address=document.createElement('address');
+    address.className='address';
 
+    (()=>{
+        for(let item of contactInfo){
+          if(item.textInfo==='412.621.1188'){
+            let a=document.createElement('a');
+            a.href=item.link;
+            a.style='color:black;text-decoration:underline;';
+            a.target='_blank'
+            a.innerHTML=item.textInfo;
+            address.appendChild(a);
+            continue;
+          }
+          if(item.textInfo==='Directions'){
+            let p=document.createElement('p');
+            let a=document.createElement('a')
+            a.appendChild(document.createElement('em')).appendChild(document.createElement('strong')).innerHTML=item.textInfo;
+            a.href=item.link;
+            a.className='direction';
+            a.target='_blank';
+            p.appendChild(a);
+            address.appendChild(p);
+            continue;
+          }
+          address.appendChild(document.createElement('p')).innerHTML=item.textInfo;  
+        }
+    })(address);
+    console.log(contactInfo)
+    footContent.appendChild(address);
     container.appendChild(footContent);
     footer.appendChild(container);
     return footer;
 }
 
-export {alcohol, dinner, breakfast, events}
+
+export {alcohol, dinner, breakfast, events, contact}
