@@ -275,10 +275,13 @@ function contact(){
     container.className='container';
     footContent.className='footerContent';
 
-    const address=document.createElement('address');
-    address.className='address';
-
     (()=>{
+        const address=document.createElement('address');
+        address.className='address';
+        const socialMedia=document.createElement('div');
+        socialMedia.className='socialMedia'
+
+        // push all address and directional information to footer
         for(let item of contactInfo){
           if(item.textInfo==='412.621.1188'){
             let a=document.createElement('a');
@@ -300,11 +303,36 @@ function contact(){
             address.appendChild(p);
             continue;
           }
+
           address.appendChild(document.createElement('p')).innerHTML=item.textInfo;  
         }
-    })(address);
-    console.log(contactInfo)
-    footContent.appendChild(address);
+
+        // get all social media links
+        let images=[fb, twitter, insta];
+        let itter=0;
+        for(let item of contactInfo){
+            if(item.alt!==''){
+                let a=document.createElement('a');
+                a.target='_blank';
+                a.href=item.link;
+
+                let image=document.createElement('img');
+                image.src=images[itter];
+                image.width=50;
+                image.height=50;
+                image.alt=item.alt;
+                
+                a.appendChild(image);
+                socialMedia.appendChild(a);
+                itter+=1;
+            }
+        }
+
+        // append to footer
+        footContent.appendChild(address);
+        footContent.appendChild(socialMedia);
+    })(footContent);
+
     container.appendChild(footContent);
     footer.appendChild(container);
     return footer;
