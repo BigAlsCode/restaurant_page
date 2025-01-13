@@ -39,6 +39,7 @@ function csvToObjects(csv) {
 }
 
 function csvSplit(row) {
+  // this prevents commas in spread sheet cells from acting as line breaks
   const regex=/,(?=(?:[^"]*"[^"]*")*[^"]*$)/
   return row.split(regex).map((val) => val.substring(1, val.length-1).replace(/"/g,''));
 }
