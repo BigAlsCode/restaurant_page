@@ -3,7 +3,7 @@ import brkText from "./assets/breakfast2.png"
 import specialsText from "./assets/specials2.png"
 import {main} from "./fetchData.js"
 
-let [dinnerFront, dinnerBack, breakFront, breakBack, specialDays, contactInfo]=await main();
+let [beer, cocktails, dinnerFront, dinnerBack, breakFront, breakBack, specialDays, contactInfo]=await main();
 
 function getItems(){
     // creates the recurring elements found in each section of the menu
@@ -60,71 +60,57 @@ function alcohol(){
     boozeMen.className='alcohol';
     boozeMen.id='alcohol';
 
-    let beerList=["FATHEAD'S-HEAD HUNTER IPA", "TROEGS-PERPETUAL IPA", "ARSENAL-PUMPKIN CIDER", 
-                  "GUINESS-STOUT", "SOUTHERN TIER-PUMKING", "MILLER LITE-LAGER", "YUENGLING LAGER",
-                  "TROEG'S HOPRA IPA 12oz CANS", "BEER OF THE MONTH $4.5"];
-
-    let drinkNames=['bloody mary', 'cappys cosmo', 'moscow mule', 
-                    'john daly', 'dark and stormy', 'mangaria', 
-                    'lavender taquini', 'big apple', 'elderflower fizz'];
-
-    let drinkDesc=[
-        "Tito's Vodka, secret house recipe, with or without horseradish, served with lemon",
-        "Smirnoff Rasberry Vodka, Cointreau, Rose's Sweet Lime, dash of bitters, served in a copper mug",
-        "Tito’s vodka, Jamaica’s Finest ginger beer (NA), Rose’s sweet lime, dash of bitters, served in a copper mug.",
-        "Absolut Citron, lemonade, unsweetened iced tea, served in a tall glass.",
-        "Meyer’s dark rum, Jamaica’s Finest ginger beer (NA), Rose’s sweet lime, served in a copper mug.",
-        "Frontera Cabernet-Merlot blend, house vodka, triple sec, orange juice, grenadine, Rose’s sweet lime.",
-        "Hornitos Plata tequila, St. Germain, Chambord, sours mix, served up.",
-        "CROWN ROYAL APPLE, Sweet and Dry Vermouth, bitters, served up or on the rocks with a cinnamon stick",
-        "Hendricks Gin, St. Germain, soda, fresh lemon."
-    ];
-
-    let drinkList=drinkNames.map((x, i)=>[x, drinkDesc[i]]);
     
 
-    const beers=document.createElement('div');
-    beers.className='beers';
-    const headBeer=document.createElement('h1');
-    headBeer.className='seasonal';
-    headBeer.textContent='Seasonal Beer List';
-    beers.appendChild(headBeer);
+    (()=>{
+        const beers=document.createElement('div');
+        const drinks=document.createElement('div');
+        beers.className='beers';
+        drinks.className='drinks';
 
-    for(let beer of beerList){
-        const head=document.createElement('h2');
-        const span=document.createElement('span');
-        span.className='highlight';
-        span.textContent=beer;
-        head.appendChild(span);
-        beers.appendChild(head);
-    }
+        for (let beverage of beer){
+            if(beverage.Header!==''){
+                const head=document.createElement('h1');
+                head.className='seasonal';
+                head.innerHTML=beverage.Header;
+                beers.appendChild(head);
+            }
+            if(beverage.Item!==''){
+                const item=document.createElement('h2');
+                const span=document.createElement('span');
+                span.className='highlight';
+                span.innerHTML=beverage.Item;
+                item.appendChild(span);
+                beers.appendChild(item);
+            }
+        }
+        boozeMen.appendChild(beers);
 
-    const drinks=document.createElement('div');
-    const cocktails=document.createElement('h1');
-    cocktails.className='cocktails';
-    cocktails.textContent=`Classic Cappys Cocktails`;
-    drinks.className='drinks';
-    drinks.appendChild(cocktails);
+        for(let drink of cocktails){
+            if(drink.Header!==''){
+                const head=document.createElement('h1');
+                head.className='cocktails';
+                head.innerHTML=drink.Header;
+                drinks.appendChild(head);
+            }
+            if(drink.Item!==''){
+                const div=document.createElement('div');
+                const name=document.createElement('h2');
+                const span=document.createElement('span');
+                const desc=document.createElement('p');
+                span.className='price';
 
-    for (let drink of drinkList){
-        // classless container to contain all elements
-        const cont=document.createElement('div');
-        const title=document.createElement('h2');
-        const titleP=document.createElement('span');
-        const desc=document.createElement('p');
-
-        title.textContent=drink[0];
-        desc.textContent=drink[1];
-        titleP.className='price';
-
-        title.appendChild(titleP);
-        cont.appendChild(title);
-        cont.appendChild(desc);
-        drinks.appendChild(cont);
-    }
-
-    boozeMen.appendChild(beers);
-    boozeMen.appendChild(drinks);
+                name.innerHTML=drink.Item;
+                name.appendChild(span);
+                desc.innerHTML=drink.Description;
+                div.appendChild(name);
+                div.appendChild(desc);
+                drinks.appendChild(div);
+            }
+        }
+        boozeMen.appendChild(drinks);
+    })(boozeMen);
+    
     booze.appendChild(boozeMen);
     return booze;
 }
