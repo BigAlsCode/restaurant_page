@@ -17,3 +17,5 @@ content.appendChild(dinner());
 content.appendChild(breakfast());
 content.appendChild(events());
 content.appendChild(contact());
+
+// Loads the webpage clicked on
