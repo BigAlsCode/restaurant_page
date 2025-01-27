@@ -6,6 +6,9 @@ console.log("The page is up and running")
 const buttons=document.querySelectorAll('button');
 const content=document.getElementById('content');
 
+
+
+
 (()=>{
     content.appendChild(homeSplash());
     content.appendChild(homeMessage());
@@ -37,4 +40,3 @@ buttons.forEach(button=>{
         }
     });
 });
-

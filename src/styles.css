@@ -45,6 +45,27 @@ body{
     gap: 1rem;
 }
 
+.menu{
+    cursor: pointer;
+}
+.dropdown{
+    position: relative;
+    display: inline-block;
+}
+.dropdowncontent{
+    display: none;
+    position: absolute;
+    overflow: auto;
+}
+.dropdowncontent a{
+    color:black;
+    text-decoration: none;
+    display: block;
+}
+.show{
+    display: block;
+}
+
 /* Main */
 
 .home-background {
