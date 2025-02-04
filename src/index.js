@@ -34,6 +34,6 @@ window.addEventListener('click', (e)=>{
 // Loads the webpage clicked on
 links.forEach(link=>{
     link.addEventListener('click',()=>{
-        console.log(link.className);
+        console.log(link.id)
     });
 });
