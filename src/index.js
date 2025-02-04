@@ -5,7 +5,8 @@ console.log("The page is up and running");
 
 // const buttons=document.querySelectorAll('button');
 const content=document.getElementById('content');
-const menuDrop=document.getElementById('menu');
+const menuDropDown=document.querySelector('.menu');
+const dropDownCont=document.querySelector('.dropdown__menu');
 
 (()=>{
     content.appendChild(homeSplash());
@@ -13,10 +14,17 @@ const menuDrop=document.getElementById('menu');
     content.appendChild(contact());
 })();
 
-menuDrop.addEventListener('click',()=>{
-    document.getElementById('myDropdown').classList.add('show')
+menuDropDown.addEventListener('click', ()=>{
+    //get menu & remove hide class
+    dropDownCont.classList.toggle('hide')
+
 });
 
+window.addEventListener('click', (e)=>{
+    if(e.target!==menuDropDown){
+        dropDownCont.classList.toggle('hide');
+    }
+});
 
 
 // Loads the webpage clicked on

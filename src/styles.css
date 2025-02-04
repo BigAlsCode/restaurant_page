@@ -52,18 +52,19 @@ body{
     position: relative;
     display: inline-block;
 }
-.dropdowncontent{
-    display: none;
+.dropdown__menu{
+    display: block;
     position: absolute;
     overflow: auto;
+    border: 1px solid #eee;
 }
-.dropdowncontent a{
+.dropdown__menu a{
     color:black;
     text-decoration: none;
     display: block;
 }
-.show{
-    display: block;
+.hide{
+    display: none;
 }
 
 /* Main */
