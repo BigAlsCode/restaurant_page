@@ -42,21 +42,25 @@ body{
 }
 .navButtons {
     display: flex;
-    gap: 1rem;
+    gap: 3rem;
 }
-
-.menu{
-    cursor: pointer;
+/* styles buttons */
+button{
+    border: none;
+    padding: 0.5rem 1rem
 }
+/* styles the menu button dropdown */
 .dropdown{
-    position: relative;
-    display: inline-block;
+    /* position: relative; */
+    /* display: inline-block; */
 }
 .dropdown__menu{
     display: block;
     position: absolute;
     overflow: auto;
     border: 1px solid #eee;
+    background-color: #424e50;
+    color: whitesmoke;
 }
 .dropdown__menu a{
     color:black;
