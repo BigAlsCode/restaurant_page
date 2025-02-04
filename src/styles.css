@@ -49,11 +49,11 @@ button{
     border: none;
     padding: 0.5rem 1rem
 }
-/* styles the menu button dropdown */
-.dropdown{
-    /* position: relative; */
-    /* display: inline-block; */
+button:hover{
+    cursor: pointer;
 }
+
+/* styles the menu button dropdown */
 .dropdown__menu{
     display: block;
     position: absolute;
