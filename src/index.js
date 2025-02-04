@@ -13,7 +13,7 @@ const dropDownCont=document.querySelector('.dropdown__menu');
 (()=>{
     content.appendChild(homeSplash());
     content.appendChild(homeMessage());
-    content.appendChild(contact());
+    document.querySelector('body').appendChild(contact())
 })();
 
 menuDropDown.addEventListener('click', ()=>{
@@ -68,7 +68,9 @@ function loadPage(link){
             content.appendChild(homeMessage());
             break;
     }
-    content.appendChild(contact());
+    if(!document.querySelector('footer')){
+        document.querySelector('body').appendChild(contact());
+    }
 }
 
 // Loads the webpage clicked on
