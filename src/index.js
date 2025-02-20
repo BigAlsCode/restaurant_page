@@ -10,10 +10,17 @@ const links=document.querySelectorAll('.direct')
 const menuDropDown=document.querySelector('.menu');
 const dropDownCont=document.querySelector('.dropdown__menu');
 
+let currentPage=window.location.href.split('/#')[1];
+
 (()=>{
-    content.appendChild(homeSplash());
-    content.appendChild(homeMessage());
-    document.querySelector('body').appendChild(contact())
+    // This will check for a default of undefined,
+    // and will call loadPage. This is done to stay
+    // on the same page if the user refreshes their 
+    // browser| Currently a simple work around for
+    // demo only. Should this go to prod->Change 
+    // currentPage var
+    if(currentPage===undefined){currentPage='home';}
+    loadPage(currentPage);
 })();
 
 menuDropDown.addEventListener('click', ()=>{
@@ -37,7 +44,7 @@ function loadPage(link){
 
     // executes the functions of menu.js and home.js
     // based on the id given in the link argument
-    switch(link.id){
+    switch(link){
         case 'specialEvents':
             content.replaceChildren();
             content.appendChild(events());
@@ -76,6 +83,6 @@ function loadPage(link){
 // Loads the webpage clicked on
 links.forEach(link=>{
     link.addEventListener('click',()=>{
-        loadPage(link);
+        loadPage(link.id);
     });
 });
