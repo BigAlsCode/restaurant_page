@@ -7,6 +7,9 @@
     --Header-font: 'Montserrat', sans-serif;
     --font-global: 'Trocchi', sans-serif;
     --global-color: #424e50;
+    --nav-color: #626464;
+    --line-color:#979797;
+    
 }
 
 *{
@@ -46,16 +49,21 @@ body{
 }
 /* styles buttons */
 button#home {
-    border-left: 4px black;
+    border-left: none;
 }
 button#ai {
-    border-right: 4px black;
+    border-right: none;
 }
 button {
-    border-top: 4px black;
+    border-right: 3px solid var(--line-color);
+    border-top: none;
+    border-bottom: none;
+    border-left: none;
     padding: 0.5rem 3rem;
     background: #ffff;
     font-size: large;
+    color: var(--nav-color);
+    text-transform: uppercase;
 }
 button:hover{
     cursor: pointer;
@@ -66,19 +74,20 @@ button:hover{
     display: flex;
     position: absolute;
     overflow: auto;
-    border: 1px solid black;
+    border: 1px solid var(--line-color);
     background-color: #ffffff;
-    color: black;
+    color: var(--nav-color);
     flex-direction: column;
     align-items: center;
     gap: 1em;
-    padding: 0.7rem 1.7rem;
+    padding: 0.7rem 0.9rem;
     font-size: larger;
 }
 .dropdown__menu a{
-    color:black;
+    text-transform: uppercase;
     text-decoration: none;
     display: block;
+    border-bottom: 1px solid var(--nav-color);
 }
 .hide{
     display: none;
