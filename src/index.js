@@ -30,7 +30,7 @@ menuDropDown.addEventListener('click', ()=>{
 });
 
 window.addEventListener('click', (e)=>{
-    if(e.target!==menuDropDown){
+    if(e.target!==menuDropDown && e.target!==dropDownCont){
         if(!dropDownCont.classList.contains('hide')){
             dropDownCont.classList.add('hide');
         }
