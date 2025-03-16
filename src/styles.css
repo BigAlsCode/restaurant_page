@@ -63,6 +63,7 @@ button {
     padding: 0.5rem 3rem;
     background: #ffff;
     font-size: large;
+    font-weight: 600;
     color: var(--nav-color);
     text-transform: uppercase;
 }
@@ -83,6 +84,7 @@ button:hover{
     gap: 1em;
     padding: 0.7rem 0.9rem;
     font-size: larger;
+    font-weight: 600;
 }
 .dropdown__menu a{
     text-transform: uppercase;
