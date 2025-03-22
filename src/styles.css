@@ -348,4 +348,12 @@ a:hover, a:visited, a:active{
     padding: 25rem;
     justify-content: center;
     font-size: xxx-large;
+    background: url(./assets/dotpattern.png), url(./assets/aiFood.png) center top no-repeat;
+    background-size: auto, 50% 100%;
+    background-color: rgba(0,0,0, 0.3);
+}
+
+h1.comingSoon {
+    color: #000000;
+    padding-top: 15rem;
 }
