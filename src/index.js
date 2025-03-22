@@ -69,6 +69,7 @@ function loadPage(link){
         case 'about':
             document.querySelector('footer').scrollIntoView({behavior:'smooth'});
             break;
+        
         case 'ai':
             content.replaceChildren();
             content.appendChild(ai());
