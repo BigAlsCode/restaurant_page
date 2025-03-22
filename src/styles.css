@@ -340,3 +340,12 @@ a{
 a:hover, a:visited, a:active{
     color: inherit;
 }
+
+
+/* AI COMING SOON CSS-Delete later */
+.aiMain {
+    display: flex;
+    padding: 25rem;
+    justify-content: center;
+    font-size: xxx-large;
+}
