@@ -1,6 +1,7 @@
 import "./styles.css"
 import {homeSplash, homeMessage} from "./home.js";
 import { alcohol, dinner, breakfast, events, contact} from "./menu.js";
+import ai from "./ai.js"
 
 console.log("The page is up and running");
 // Main div container for each page
