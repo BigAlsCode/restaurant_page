@@ -104,7 +104,7 @@ main {
 .home-background {
     background: url(./assets/dotpattern.png),url(./assets/home_image.jpg) center bottom no-repeat;
     background-blend-mode: multiply;
-    background-size: auto, 98% 100%;
+    background-size: auto, 80% 100%;
     min-height: 79rem;
     text-align: center;
 }
